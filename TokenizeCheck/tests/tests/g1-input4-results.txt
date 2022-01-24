@@ -1,0 +1,1 @@
+{"error": -1, "tokens": [{"sym": "IDENTIFIER", "lexeme": "foo", "line": 1}, {"sym": "ADDOP", "lexeme": "-", "line": 1}, {"sym": "IDENTIFIER", "lexeme": "bar", "line": 1}]}

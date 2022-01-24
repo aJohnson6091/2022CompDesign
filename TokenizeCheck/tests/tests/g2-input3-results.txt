@@ -1,0 +1,1 @@
+{"error": 5, "tokens": [{"sym": "IF", "lexeme": "if", "line": 1}, {"sym": "ID", "lexeme": "this", "line": 2}, {"sym": "ID", "lexeme": "fails", "line": 3}, {"sym": "ID", "lexeme": "then", "line": 4}, {"sym": "ID", "lexeme": "what", "line": 5}]}

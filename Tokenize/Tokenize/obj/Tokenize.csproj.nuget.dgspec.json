@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\johnsau\\Source\\Repos\\2022CompDesign\\Tokenize\\Tokenize\\Tokenize.csproj": {}
+    "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\Tokenize\\Tokenize\\Tokenize.csproj": {}
   },
   "projects": {
-    "C:\\Users\\johnsau\\Source\\Repos\\2022CompDesign\\Tokenize\\Tokenize\\Tokenize.csproj": {
+    "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\Tokenize\\Tokenize\\Tokenize.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\johnsau\\Source\\Repos\\2022CompDesign\\Tokenize\\Tokenize\\Tokenize.csproj",
+        "projectUniqueName": "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\Tokenize\\Tokenize\\Tokenize.csproj",
         "projectName": "Tokenize",
-        "projectPath": "C:\\Users\\johnsau\\Source\\Repos\\2022CompDesign\\Tokenize\\Tokenize\\Tokenize.csproj",
+        "projectPath": "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\Tokenize\\Tokenize\\Tokenize.csproj",
         "packagesPath": "C:\\Users\\johnsau\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\johnsau\\Source\\Repos\\2022CompDesign\\Tokenize\\Tokenize\\obj\\",
+        "outputPath": "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\Tokenize\\Tokenize\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

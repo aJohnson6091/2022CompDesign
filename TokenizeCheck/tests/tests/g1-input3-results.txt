@@ -1,0 +1,1 @@
+{"error": -1, "tokens": [{"sym": "NUM", "lexeme": "1", "line": 1}, {"sym": "MULOP", "lexeme": "*", "line": 2}, {"sym": "NUM", "lexeme": "4", "line": 3}]}
