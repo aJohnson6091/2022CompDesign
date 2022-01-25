@@ -1,8 +1,3 @@
-C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\obj\Debug\net5.0\Tokenize.csproj.AssemblyReference.cache
-C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\obj\Debug\net5.0\Tokenize.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\obj\Debug\net5.0\Tokenize.AssemblyInfoInputs.cache
-C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\obj\Debug\net5.0\Tokenize.AssemblyInfo.cs
-C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\obj\Debug\net5.0\Tokenize.csproj.CoreCompileInputs.cache
 C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\bin\Debug\net5.0\Tokenize.exe
 C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\bin\Debug\net5.0\Tokenize.deps.json
 C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\bin\Debug\net5.0\Tokenize.runtimeconfig.json
@@ -10,6 +5,11 @@ C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\bin\Debug\net5.0\
 C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\bin\Debug\net5.0\Tokenize.dll
 C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\bin\Debug\net5.0\ref\Tokenize.dll
 C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\bin\Debug\net5.0\Tokenize.pdb
+C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\obj\Debug\net5.0\Tokenize.csproj.AssemblyReference.cache
+C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\obj\Debug\net5.0\Tokenize.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\obj\Debug\net5.0\Tokenize.AssemblyInfoInputs.cache
+C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\obj\Debug\net5.0\Tokenize.AssemblyInfo.cs
+C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\obj\Debug\net5.0\Tokenize.csproj.CoreCompileInputs.cache
 C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\obj\Debug\net5.0\Tokenize.dll
 C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\obj\Debug\net5.0\ref\Tokenize.dll
 C:\Users\johnsau\source\repos\2022CompDesign\Tokenize\Tokenize\obj\Debug\net5.0\Tokenize.pdb

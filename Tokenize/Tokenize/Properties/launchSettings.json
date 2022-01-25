@@ -2,7 +2,7 @@
   "profiles": {
     "Tokenize": {
       "commandName": "Project",
-      "commandLineArgs": "g1.txt g1-input1.txt",
+      "commandLineArgs": "g5.txt g5-input2.txt",
       "workingDirectory": "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\Tokenize\\Tokenize\\bin\\Debug\\net5.0"
     }
   }

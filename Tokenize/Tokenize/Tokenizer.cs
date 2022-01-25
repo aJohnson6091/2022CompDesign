@@ -11,7 +11,7 @@ namespace Tokenize
     {
         List<Terminal> terminals = new List<Terminal>();
         int index;
-        List<string> input;
+        string input;
         int lineNumber;
         public Tokenizer(Grammar g)
         {
@@ -20,20 +20,24 @@ namespace Tokenize
         public void setInput(string input)
         {
             this.index = 0;
-            this.input = new List<string>(input.Split((char)32));
+            this.input = input;
             this.lineNumber = 1;
         }
         public Token next()
         {
             Token returnToken = new Token("","",0);
             
-            if(this.index >= input.Count)
+            if(this.index >= input.Length)
             {
                 return new Token("$", "", -1);
             }
             foreach(Terminal terminal in terminals)
             {
-                string temp = terminal.rex.Match(this.input.ElementAt(index)).Value;
+                string temp = "";
+                if (terminal.rex.Match(this.input.Substring(this.index, this.input.Length - this.index)).Success){
+                    temp = terminal.rex.Match(this.input.Substring(this.index, this.input.Length - this.index)).Value;
+                }
+                
 
                 if (temp.Length > returnToken.lexeme.Length)
                 {
@@ -43,22 +47,27 @@ namespace Tokenize
                 }
             }
 
-            this.index++;
+            index +=returnToken.lexeme.Length;
+
+            
+            if(returnToken.sym == "COMMENT" || returnToken.sym == "WHITESPACE")
+            {
+                if(returnToken.lexeme.Contains("\n"))
+                {
+                    lineNumber += returnToken.lexeme.Split("\n").Length-1;
+                }
+                return next();
+            }
+
+            returnToken.line = this.lineNumber;
 
             if (returnToken.lexeme.Length <= 0)
             {
-                throw new Exception();
+                throw new Exception(returnToken.line.ToString());
             }
-            if(returnToken.sym == "COMMENT" || returnToken.sym == "WHITESPACE")
-            {
-                return next();
-            }
-            else
-            {
-                returnToken.line = this.lineNumber;
-                this.lineNumber++;
-                return returnToken;
-            }
+                
+            return returnToken;
+            
         }
         /*
         public Token peek()

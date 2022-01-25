@@ -57,6 +57,19 @@ namespace Tokenize
                     }
                 }
             }
+            bool whiteSpaceFlag = false;
+            foreach(Terminal terminal in terminals)
+            {
+                
+                if (terminal.sym.Equals("WHITESPACE"))
+                {
+                    whiteSpaceFlag = true;
+                }
+            }
+            if(whiteSpaceFlag == false)
+            {
+                terminals.Add(new Terminal("WHITESPACE", new System.Text.RegularExpressions.Regex("\\s+")));
+            }
         }
     }
 }

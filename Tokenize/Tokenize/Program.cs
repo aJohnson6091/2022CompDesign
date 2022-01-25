@@ -34,16 +34,20 @@ namespace Tokenize
                 {
                     Token t = tokenizer.next();
                     if (t.sym == "$")
-                        break;      //end of file
-                    tokens.Add(t);           //do something with t
+                    {
+                        J = System.Text.Json.JsonSerializer.Serialize(new Output(-1, tokens), opts);
+                        break;
+                    }
+                    tokens.Add(t);           
                 }
                 catch (Exception e)
                 {
-                    J = System.Text.Json.JsonSerializer.Serialize(new Output(1,tokens), opts);
-                    Console.WriteLine(J);
+                    J = System.Text.Json.JsonSerializer.Serialize(new Output(Int32.Parse(e.Message),tokens), opts);
+                    break;
+                    
                 }
             }
-            J = System.Text.Json.JsonSerializer.Serialize(new Output(-1 ,tokens), opts);
+            
             Console.WriteLine(J);
         }
     }
