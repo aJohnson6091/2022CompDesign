@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "CFGIntro": {
+      "commandName": "Project",
+      "commandLineArgs": "g06.txt",
+      "workingDirectory": "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\CFGIntro\\CFGIntro\\bin\\Debug\\net5.0"
+    }
+  }
+}

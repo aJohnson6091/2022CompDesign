@@ -1,5 +1,0 @@
-IDENTIFIER :: [A-Za-z]+
-NUM :: \d+
-ADDOP :: [-+]
-MULOP :: [*/]
-WHITESPACE:: \s+

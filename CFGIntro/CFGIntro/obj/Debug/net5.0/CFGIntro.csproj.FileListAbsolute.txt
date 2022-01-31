@@ -1,0 +1,16 @@
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\obj\Debug\net5.0\CFGIntro.csproj.AssemblyReference.cache
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\obj\Debug\net5.0\CFGIntro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\obj\Debug\net5.0\CFGIntro.AssemblyInfoInputs.cache
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\obj\Debug\net5.0\CFGIntro.AssemblyInfo.cs
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\obj\Debug\net5.0\CFGIntro.csproj.CoreCompileInputs.cache
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\bin\Debug\net5.0\CFGIntro.exe
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\bin\Debug\net5.0\CFGIntro.deps.json
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\bin\Debug\net5.0\CFGIntro.runtimeconfig.json
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\bin\Debug\net5.0\CFGIntro.runtimeconfig.dev.json
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\bin\Debug\net5.0\CFGIntro.dll
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\bin\Debug\net5.0\ref\CFGIntro.dll
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\bin\Debug\net5.0\CFGIntro.pdb
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\obj\Debug\net5.0\CFGIntro.dll
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\obj\Debug\net5.0\ref\CFGIntro.dll
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\obj\Debug\net5.0\CFGIntro.pdb
+C:\Users\johnsau\source\repos\2022CompDesign\CFGIntro\CFGIntro\obj\Debug\net5.0\CFGIntro.genruntimeconfig.cache

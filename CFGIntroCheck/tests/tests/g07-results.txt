@@ -1,0 +1,95 @@
+{
+  "terminals": [
+    "PLUS",
+    "MINUS",
+    "STAR",
+    "ID",
+    "LP",
+    "RP"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "expr"
+        ],
+        "labels": []
+      }
+    ],
+    "expr": [
+      {
+        "lhs": "expr",
+        "rhs": [
+          "expr",
+          "PLUS",
+          "term"
+        ],
+        "labels": [
+          "addition"
+        ]
+      },
+      {
+        "lhs": "expr",
+        "rhs": [
+          "expr",
+          "MINUS",
+          "term"
+        ],
+        "labels": [
+          "subtraction"
+        ]
+      },
+      {
+        "lhs": "expr",
+        "rhs": [
+          "term"
+        ],
+        "labels": []
+      }
+    ],
+    "factor": [
+      {
+        "lhs": "factor",
+        "rhs": [
+          "ID"
+        ],
+        "labels": [
+          "variable"
+        ]
+      },
+      {
+        "lhs": "factor",
+        "rhs": [
+          "LP",
+          "expr",
+          "RP"
+        ],
+        "labels": [
+          "parenthesized"
+        ]
+      }
+    ],
+    "term": [
+      {
+        "lhs": "term",
+        "rhs": [
+          "term",
+          "STAR",
+          "factor"
+        ],
+        "labels": [
+          "multiplication"
+        ]
+      },
+      {
+        "lhs": "term",
+        "rhs": [
+          "factor"
+        ],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "PLUS :: \\+\nMINUS :: -\nSTAR :: \\*\nID :: \\w+\nLP :: \\(\nRP :: \\)\n\nS::expr\nexpr    ::    expr PLUS term      @addition\n      | expr MINUS term     @subtraction\n      |    term                     \nterm :: term STAR factor    @multiplication\n      |  factor\nfactor :: ID                @variable\n        | LP expr RP        @parenthesized\n"
+}

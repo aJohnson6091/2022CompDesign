@@ -1,0 +1,27 @@
+{
+  "terminals": [
+    "LP",
+    "RP"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "LP",
+          "S",
+          "RP"
+        ],
+        "labels": [
+          "parenthesized"
+        ]
+      },
+      {
+        "lhs": "S",
+        "rhs": [],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "LP :: \\(\nRP :: \\)\nS :: LP S RP  @parenthesized | lambda \n"
+}

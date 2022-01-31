@@ -1,0 +1,19 @@
+{
+  "terminals": [
+    "X"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "X"
+        ],
+        "labels": [
+          "myLabel"
+        ]
+      }
+    ]
+  },
+  "specification": "X :: X\nS :: X          @myLabel\n"
+}

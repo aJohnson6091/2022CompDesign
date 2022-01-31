@@ -1,0 +1,15 @@
+PLUS :: \+
+MINUS :: -
+STAR :: \*
+ID :: \w+
+LP :: \(
+RP :: \)
+
+S :: expr
+expr :: expr PLUS term      @addition
+      | expr MINUS term     @subtraction
+      | term                
+term :: term STAR factor    @multiplication
+      | factor
+factor :: ID                @variable
+        | LP expr RP        @parenthesized

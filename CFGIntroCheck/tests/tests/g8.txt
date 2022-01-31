@@ -1,0 +1,18 @@
+DCOLON :: ::
+COLON :: :
+PIPE :: \|
+NOTNEWLINE :: [^\n]*
+S :: itemlist
+itemlist :: item itemlist | item
+item :: terminal                        @thing1
+     | nonterminal                      @thing2
+terminal :: TNAME DCOLON NOTNEWLINE
+TNAME :: [A-Z][^ :]*
+nonterminal :: NTNAME COLON prodlist    @thing1,thing2
+NTNAME :: [a-z][^ :]*
+prodlist :: production PIPE prodlist    @prod1
+         |  production                  @prod2
+production :: TNAME | NTNAME | LAMBDA
+LAMBDA :: lambda
+COMMENT :: ^#[^\n]*
+WHITESPACE :: \s+

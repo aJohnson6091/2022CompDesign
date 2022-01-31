@@ -1,0 +1,8 @@
+A :: A
+B :: B
+C :: C
+
+S :: a b c
+a :: A | lambda
+b :: B | lambda
+c :: C | lambda
