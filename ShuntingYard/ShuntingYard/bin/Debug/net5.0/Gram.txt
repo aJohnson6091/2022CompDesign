@@ -1,0 +1,9 @@
+NUM :: \d+
+ID :: [A-Za-z]\w*
+LP :: [(]
+RP :: [)]
+COMMA :: ,
+ADDOP :: [-+]
+MULOP :: [*/]
+POWOP :: [**]
+WHITESPACE :: \s+

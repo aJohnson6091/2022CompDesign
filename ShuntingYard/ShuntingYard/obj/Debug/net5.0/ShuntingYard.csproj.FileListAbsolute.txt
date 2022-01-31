@@ -1,0 +1,16 @@
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\bin\Debug\net5.0\ShuntingYard.exe
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\bin\Debug\net5.0\ShuntingYard.deps.json
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\bin\Debug\net5.0\ShuntingYard.runtimeconfig.json
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\bin\Debug\net5.0\ShuntingYard.runtimeconfig.dev.json
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\bin\Debug\net5.0\ShuntingYard.dll
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\bin\Debug\net5.0\ref\ShuntingYard.dll
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\bin\Debug\net5.0\ShuntingYard.pdb
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\obj\Debug\net5.0\ShuntingYard.csproj.AssemblyReference.cache
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\obj\Debug\net5.0\ShuntingYard.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\obj\Debug\net5.0\ShuntingYard.AssemblyInfoInputs.cache
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\obj\Debug\net5.0\ShuntingYard.AssemblyInfo.cs
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\obj\Debug\net5.0\ShuntingYard.csproj.CoreCompileInputs.cache
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\obj\Debug\net5.0\ShuntingYard.dll
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\obj\Debug\net5.0\ref\ShuntingYard.dll
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\obj\Debug\net5.0\ShuntingYard.pdb
+C:\Users\johnsau\source\repos\2022CompDesign\ShuntingYard\ShuntingYard\obj\Debug\net5.0\ShuntingYard.genruntimeconfig.cache

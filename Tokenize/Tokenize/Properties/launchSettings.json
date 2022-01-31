@@ -3,7 +3,7 @@
     "Tokenize": {
       "commandName": "Project",
       "commandLineArgs": "g5.txt g5-input2.txt",
-      "workingDirectory": "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\Tokenize\\Tokenize\\bin\\Debug\\net5.0"
+      "workingDirectory": "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\TokenizeCheck\\tests\\tests"
     }
   }
 }
