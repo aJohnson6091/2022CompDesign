@@ -24,6 +24,8 @@ namespace ShuntingYard
             List<Token> tokens = new List<Token>();
             Stack<TreeNode> nodeStack = new Stack<TreeNode>();
             Stack<TreeNode> operatorStack = new Stack<TreeNode>();
+
+            //Read until end of file adding and applying things to the stack
             while (true)
             {
                 try
@@ -37,11 +39,19 @@ namespace ShuntingYard
 
                     if(t.lexeme == "-")
                     {
-                        string p = tokens[tokens.Count - 1].sym;
-                        if(p == null || p.Equals("LP") || p.Equals("MULOP") || p.Equals("POWOP")|| p.Equals("ADDOP"))
+                        if(tokens.Count >= 1)
+                        {
+                            string p = tokens[tokens.Count - 1].sym;
+                            if (p == null || p.Equals("LP") || p.Equals("MULOP") || p.Equals("POWOP") || p.Equals("ADDOP"))
+                            {
+                                t.sym = "NEGATE";
+                            }
+                        }
+                        else
                         {
                             t.sym = "NEGATE";
                         }
+                        
                     }
 
                     tokens.Add(t);
@@ -61,16 +71,25 @@ namespace ShuntingYard
                     break;
 
                 }
-            }while(operatorStack.Count != 0)
+            }
+            //finish clearing the stack
+            while(operatorStack.Count != 0)
             {
+                string A = operatorStack.Peek().sym;
                 TreeNode opNode = operatorStack.Pop();
                 TreeNode c1 = nodeStack.Pop();
-                TreeNode c2 = nodeStack.Pop();
-                opNode.children.Add(c2);
+                if (Functions.arity(A) == 2)
+                {
+                    TreeNode c2 = nodeStack.Pop();
+                    opNode.children.Add(c2);
+                }
                 opNode.children.Add(c1);
                 nodeStack.Push(opNode);
-            }
 
+            }
+            Console.WriteLine(Functions.parseTree(nodeStack.Pop()));
+            //Process the stack
+            
         }
 
         
