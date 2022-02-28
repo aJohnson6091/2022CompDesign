@@ -40,7 +40,7 @@ namespace ShuntingYard
             char assoc = associativity(t.sym);
             while (true)
             {
-                if (operatorStack.Count == 0)
+                if (operatorStack.Count == 0 || operatorStack.Peek().sym.Equals("POWOP")&&t.sym.Equals("NEGATE"))
                     break;
                 string A = operatorStack.Peek().sym;
                 if (((assoc == 'L' && precedence(A) >= precedence(t.sym)) || (assoc == 'R' && precedence(A) > precedence(t.sym))) && precedence(t.sym)!=0)
@@ -81,10 +81,6 @@ namespace ShuntingYard
 
         public static float parseTree(TreeNode node)
         {
-            if (node.sym.Equals("NEGATE"))
-            {
-                return float.Parse(node.children[0].token.lexeme) * -1;
-            }
             if(node.sym.Equals("MULOP") || node.sym.Equals("POWOP") || node.sym.Equals("ADDOP"))
             {
                 float c1Value, c2Value;
@@ -118,13 +114,21 @@ namespace ShuntingYard
                         case "/":
                             return c1Value / c2Value;                            
                         case "**":
-                            return (int)Math.Pow(c1Value,c2Value);                           
+                            return (float)Math.Pow(c1Value,c2Value);                           
                     }
                 }
                 else
                 {
                     return float.Parse(node.token.lexeme);
                 }
+            }
+            if (node.sym.Equals("NEGATE"))
+            {
+                if (node.children[0].token.sym.Equals("POWOP") || node.children[0].token.sym.Equals("NEGATE") || node.children[0].token.sym.Equals("ADDOP") || node.sym.Equals("MULOP"))
+                {
+                    return Functions.parseTree(node.children[0]) * -1;
+                }
+                return float.Parse(node.children[0].token.lexeme) * -1;
             }
             return 0;
         }

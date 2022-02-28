@@ -42,7 +42,7 @@ namespace ShuntingYard
                         if(tokens.Count >= 1)
                         {
                             string p = tokens[tokens.Count - 1].sym;
-                            if (p == null || p.Equals("LP") || p.Equals("MULOP") || p.Equals("POWOP") || p.Equals("ADDOP"))
+                            if (p == null || p.Equals("LP") || p.Equals("MULOP") || p.Equals("POWOP") || p.Equals("ADDOP")|| p.Equals("NEGATE"))
                             {
                                 t.sym = "NEGATE";
                             }
