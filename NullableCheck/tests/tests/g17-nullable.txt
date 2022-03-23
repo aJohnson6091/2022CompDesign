@@ -1,0 +1,631 @@
+{
+  "terminals": [
+    "ADDOP",
+    "AND",
+    "CMA",
+    "COMMENT",
+    "DEF",
+    "ELSE",
+    "EQ",
+    "IF",
+    "LB",
+    "LBR",
+    "LP",
+    "MINUS",
+    "MULOP",
+    "NOT",
+    "NUM",
+    "NUMBER",
+    "OR",
+    "PRINT",
+    "RB",
+    "RBR",
+    "RP",
+    "RELOP",
+    "RETURN",
+    "SEMI",
+    "SHIFT",
+    "STRING",
+    "STRING-CONSTANT",
+    "VAR",
+    "WHILE",
+    "ID"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "program"
+        ],
+        "labels": []
+      }
+    ],
+    "andexp": [
+      {
+        "lhs": "andexp",
+        "rhs": [
+          "andexp",
+          "AND",
+          "notexp"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "andexp",
+        "rhs": [
+          "notexp"
+        ],
+        "labels": []
+      }
+    ],
+    "assign": [
+      {
+        "lhs": "assign",
+        "rhs": [
+          "ID",
+          "EQ",
+          "expr"
+        ],
+        "labels": []
+      }
+    ],
+    "brace-block": [
+      {
+        "lhs": "brace-block",
+        "rhs": [
+          "LBR",
+          "var-decl-list",
+          "stmts",
+          "RBR"
+        ],
+        "labels": []
+      }
+    ],
+    "builtin-func-call": [
+      {
+        "lhs": "builtin-func-call",
+        "rhs": [
+          "PRINT",
+          "LP",
+          "expr-list",
+          "RP"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "builtin-func-call",
+        "rhs": [
+          "SHIFT",
+          "LP",
+          "expr",
+          "CMA",
+          "expr",
+          "RP"
+        ],
+        "labels": []
+      }
+    ],
+    "cond": [
+      {
+        "lhs": "cond",
+        "rhs": [
+          "IF",
+          "expr",
+          "brace-block"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "cond",
+        "rhs": [
+          "IF",
+          "expr",
+          "brace-block",
+          "ELSE",
+          "brace-block"
+        ],
+        "labels": []
+      }
+    ],
+    "expr": [
+      {
+        "lhs": "expr",
+        "rhs": [
+          "orexp"
+        ],
+        "labels": []
+      }
+    ],
+    "expr-list": [
+      {
+        "lhs": "expr-list",
+        "rhs": [
+          "expr",
+          "expr-list'"
+        ],
+        "labels": []
+      }
+    ],
+    "expr-list'": [
+      {
+        "lhs": "expr-list'",
+        "rhs": [],
+        "labels": []
+      },
+      {
+        "lhs": "expr-list'",
+        "rhs": [
+          "CMA",
+          "expr",
+          "expr-list'"
+        ],
+        "labels": []
+      }
+    ],
+    "factor": [
+      {
+        "lhs": "factor",
+        "rhs": [
+          "ID"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "factor",
+        "rhs": [
+          "NUM"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "factor",
+        "rhs": [
+          "LP",
+          "expr",
+          "RP"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "factor",
+        "rhs": [
+          "func-call"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "factor",
+        "rhs": [
+          "ID",
+          "LB",
+          "expr-list",
+          "RB"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "factor",
+        "rhs": [
+          "STRING-CONSTANT"
+        ],
+        "labels": []
+      }
+    ],
+    "func-call": [
+      {
+        "lhs": "func-call",
+        "rhs": [
+          "ID",
+          "LP",
+          "optional-expr-list",
+          "RP"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "func-call",
+        "rhs": [
+          "builtin-func-call"
+        ],
+        "labels": []
+      }
+    ],
+    "func-decl": [
+      {
+        "lhs": "func-decl",
+        "rhs": [
+          "DEF",
+          "ID",
+          "LP",
+          "type-list",
+          "RP",
+          "optional-return-spec",
+          "brace-block"
+        ],
+        "labels": []
+      }
+    ],
+    "func-decl-list": [
+      {
+        "lhs": "func-decl-list",
+        "rhs": [
+          "func-decl",
+          "func-decl-list"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "func-decl-list",
+        "rhs": [],
+        "labels": []
+      }
+    ],
+    "loop": [
+      {
+        "lhs": "loop",
+        "rhs": [
+          "WHILE",
+          "LP",
+          "expr",
+          "RP",
+          "brace-block"
+        ],
+        "labels": []
+      }
+    ],
+    "neg": [
+      {
+        "lhs": "neg",
+        "rhs": [
+          "MINUS",
+          "neg"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "neg",
+        "rhs": [
+          "factor"
+        ],
+        "labels": []
+      }
+    ],
+    "non-array-type": [
+      {
+        "lhs": "non-array-type",
+        "rhs": [
+          "NUMBER"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "non-array-type",
+        "rhs": [
+          "STRING"
+        ],
+        "labels": []
+      }
+    ],
+    "notexp": [
+      {
+        "lhs": "notexp",
+        "rhs": [
+          "NOT",
+          "notexp"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "notexp",
+        "rhs": [
+          "rel"
+        ],
+        "labels": []
+      }
+    ],
+    "optional-expr-list": [
+      {
+        "lhs": "optional-expr-list",
+        "rhs": [],
+        "labels": []
+      },
+      {
+        "lhs": "optional-expr-list",
+        "rhs": [
+          "expr-list"
+        ],
+        "labels": []
+      }
+    ],
+    "optional-return-spec": [
+      {
+        "lhs": "optional-return-spec",
+        "rhs": [
+          "RETURN",
+          "type"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "optional-return-spec",
+        "rhs": [],
+        "labels": []
+      }
+    ],
+    "orexp": [
+      {
+        "lhs": "orexp",
+        "rhs": [
+          "orexp",
+          "OR",
+          "andexp"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "orexp",
+        "rhs": [
+          "andexp"
+        ],
+        "labels": []
+      }
+    ],
+    "program": [
+      {
+        "lhs": "program",
+        "rhs": [
+          "var-decl-list",
+          "func-decl-list"
+        ],
+        "labels": []
+      }
+    ],
+    "rel": [
+      {
+        "lhs": "rel",
+        "rhs": [
+          "sum",
+          "RELOP",
+          "sum"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "rel",
+        "rhs": [
+          "sum"
+        ],
+        "labels": []
+      }
+    ],
+    "return-stmt": [
+      {
+        "lhs": "return-stmt",
+        "rhs": [
+          "RETURN"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "return-stmt",
+        "rhs": [
+          "RETURN",
+          "expr"
+        ],
+        "labels": []
+      }
+    ],
+    "size-list": [
+      {
+        "lhs": "size-list",
+        "rhs": [
+          "NUM"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "size-list",
+        "rhs": [
+          "NUM",
+          "CMA",
+          "size-list"
+        ],
+        "labels": []
+      }
+    ],
+    "stmt": [
+      {
+        "lhs": "stmt",
+        "rhs": [
+          "assign",
+          "SEMI"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "stmt",
+        "rhs": [
+          "func-call",
+          "SEMI"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "stmt",
+        "rhs": [
+          "loop"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "stmt",
+        "rhs": [
+          "cond"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "stmt",
+        "rhs": [
+          "return-stmt",
+          "SEMI"
+        ],
+        "labels": []
+      }
+    ],
+    "stmts": [
+      {
+        "lhs": "stmts",
+        "rhs": [
+          "stmt",
+          "SEMI",
+          "stmts"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "stmts",
+        "rhs": [],
+        "labels": []
+      }
+    ],
+    "sum": [
+      {
+        "lhs": "sum",
+        "rhs": [
+          "sum",
+          "ADDOP",
+          "term"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "sum",
+        "rhs": [
+          "sum",
+          "MINUS",
+          "term"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "sum",
+        "rhs": [
+          "term"
+        ],
+        "labels": []
+      }
+    ],
+    "term": [
+      {
+        "lhs": "term",
+        "rhs": [
+          "term",
+          "MULOP",
+          "neg"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "term",
+        "rhs": [
+          "neg"
+        ],
+        "labels": []
+      }
+    ],
+    "type": [
+      {
+        "lhs": "type",
+        "rhs": [
+          "non-array-type"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "type",
+        "rhs": [
+          "non-array-type",
+          "LB",
+          "size-list",
+          "RB"
+        ],
+        "labels": []
+      }
+    ],
+    "type-list": [
+      {
+        "lhs": "type-list",
+        "rhs": [],
+        "labels": []
+      },
+      {
+        "lhs": "type-list",
+        "rhs": [
+          "ID",
+          "type",
+          "type-list'"
+        ],
+        "labels": []
+      }
+    ],
+    "type-list'": [
+      {
+        "lhs": "type-list'",
+        "rhs": [
+          "CMA",
+          "ID",
+          "type",
+          "type-list'"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "type-list'",
+        "rhs": [],
+        "labels": []
+      }
+    ],
+    "var-decl": [
+      {
+        "lhs": "var-decl",
+        "rhs": [
+          "VAR",
+          "ID",
+          "type"
+        ],
+        "labels": []
+      }
+    ],
+    "var-decl-list": [
+      {
+        "lhs": "var-decl-list",
+        "rhs": [
+          "var-decl",
+          "SEMI",
+          "var-decl-list"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "var-decl-list",
+        "rhs": [],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "ADDOP :: [+]\nAND :: \\band\\b\nCMA :: ,\nCOMMENT :: //[^\\n]*\nDEF :: \\bdef\\b\nELSE :: \\belse\\b\nEQ :: =\nIF :: \\bif\\b\nLB :: \\[\nLBR :: [{]\nLP :: [(]\nMINUS :: -\nMULOP :: [*/]\nNOT :: \\bnot\\b\nNUM :: -?(\\d+|\\d+\\.\\d*|\\.\\d+)([Ee][-+]?\\d+)?\nNUMBER :: \\bnum\\b\nOR :: \\bor\\b\nPRINT :: \\bprint\\b\nRB :: \\]\nRBR :: [}]\nRP :: [)]\nRELOP :: >=|<=|!=|==|>|<\nRETURN :: \\breturn\\b\nSEMI :: ;\nSHIFT :: \\bshift\\b\nSTRING :: \\bstring\\b\nSTRING-CONSTANT :: \"(\\\\\"|[^\"])*\" | '(\\\\'|[^'])*'\nVAR :: \\bvar\\b\nWHILE :: \\bwhile\\b\nID :: [A-Za-z_]\\w*\n\nS :: program\nprogram :: var-decl-list func-decl-list\nfunc-decl-list :: func-decl func-decl-list | lambda\nfunc-decl :: DEF ID LP type-list RP optional-return-spec brace-block\noptional-return-spec :: RETURN type | lambda\nbrace-block :: LBR var-decl-list stmts RBR\ntype-list :: lambda | ID type type-list'\ntype-list' :: CMA ID type type-list' | lambda\ntype :: non-array-type | non-array-type LB size-list RB\nnon-array-type :: NUMBER | STRING\nsize-list :: NUM | NUM CMA size-list\nstmts :: stmt SEMI stmts | lambda\nstmt :: assign SEMI | func-call SEMI | loop | cond | return-stmt SEMI\nreturn-stmt :: RETURN | RETURN expr\nfunc-call :: ID LP optional-expr-list RP | builtin-func-call\nbuiltin-func-call :: PRINT LP expr-list RP | SHIFT LP expr CMA expr RP\noptional-expr-list :: lambda | expr-list\nexpr-list ::  expr expr-list'\nexpr-list' :: lambda | CMA expr expr-list'\nloop :: WHILE LP expr RP brace-block\ncond :: IF expr brace-block | IF expr brace-block ELSE brace-block\nvar-decl-list :: var-decl SEMI var-decl-list | lambda\nvar-decl :: VAR ID type\nexpr :: orexp\norexp :: orexp OR andexp | andexp\nandexp :: andexp AND notexp | notexp\nnotexp :: NOT notexp | rel\nrel :: sum RELOP sum | sum\nsum :: sum ADDOP term | sum MINUS term | term\nterm :: term MULOP neg | neg\nneg :: MINUS neg | factor\nfactor :: ID | NUM | LP expr RP | func-call | ID LB expr-list RB | STRING-CONSTANT\nassign :: ID EQ expr\n",
+  "nullable": [
+    "func-decl-list",
+    "expr-list'",
+    "var-decl-list",
+    "type-list",
+    "optional-return-spec",
+    "stmts",
+    "program",
+    "S",
+    "optional-expr-list",
+    "type-list'"
+  ]
+}

@@ -1,0 +1,9 @@
+PLUS :: [-+]
+TIMES :: [*/]
+LP :: [(]
+RP :: [)]
+NUM :: \d+
+S :: e
+e :: e PLUS e | t
+t :: t TIMES t | f
+f :: NUM | LP e RP

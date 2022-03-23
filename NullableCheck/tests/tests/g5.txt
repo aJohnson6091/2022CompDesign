@@ -1,0 +1,8 @@
+ID :: ID
+COMMA :: ,
+LP :: \(
+RP :: \)
+
+S :: LP plist RP
+plist :: lambda | ID | ID COMMA plist'
+plist' :: ID COMMA plist' | ID

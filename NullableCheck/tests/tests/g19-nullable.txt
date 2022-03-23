@@ -1,0 +1,129 @@
+{
+  "terminals": [
+    "ADDOP",
+    "MULOP",
+    "NUM",
+    "LP",
+    "RP",
+    "ID"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "expr"
+        ],
+        "labels": []
+      }
+    ],
+    "expr": [
+      {
+        "lhs": "expr",
+        "rhs": [
+          "term",
+          "expr'"
+        ],
+        "labels": []
+      }
+    ],
+    "expr'": [
+      {
+        "lhs": "expr'",
+        "rhs": [
+          "ADDOP",
+          "term",
+          "expr'"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "expr'",
+        "rhs": [],
+        "labels": []
+      }
+    ],
+    "factor": [
+      {
+        "lhs": "factor",
+        "rhs": [
+          "id_or_func_call"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "factor",
+        "rhs": [
+          "NUM"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "factor",
+        "rhs": [
+          "LP",
+          "expr",
+          "RP"
+        ],
+        "labels": []
+      }
+    ],
+    "id_or_func_call": [
+      {
+        "lhs": "id_or_func_call",
+        "rhs": [
+          "ID",
+          "id_or_func_call'"
+        ],
+        "labels": []
+      }
+    ],
+    "id_or_func_call'": [
+      {
+        "lhs": "id_or_func_call'",
+        "rhs": [],
+        "labels": []
+      },
+      {
+        "lhs": "id_or_func_call'",
+        "rhs": [
+          "LP",
+          "RP"
+        ],
+        "labels": []
+      }
+    ],
+    "term": [
+      {
+        "lhs": "term",
+        "rhs": [
+          "factor",
+          "term'"
+        ],
+        "labels": []
+      }
+    ],
+    "term'": [
+      {
+        "lhs": "term'",
+        "rhs": [
+          "MULOP",
+          "factor",
+          "term'"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "term'",
+        "rhs": [],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "ADDOP :: [-+]\nMULOP :: [*/]\nNUM :: \\d+\nLP :: [(]\nRP :: [)]\nID :: \\w+\nS :: expr \nexpr :: term expr'\nexpr' :: ADDOP term expr' | lambda\nterm :: factor term'\nterm' :: MULOP factor term' | lambda\nfactor :: id_or_func_call | NUM | LP expr RP\nid_or_func_call :: ID id_or_func_call'\nid_or_func_call' :: lambda | LP RP\n",
+  "nullable": [
+    "term'",
+    "expr'",
+    "id_or_func_call'"
+  ]
+}

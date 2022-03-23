@@ -1,0 +1,93 @@
+{
+  "terminals": [
+    "X"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "a"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "S",
+        "rhs": [
+          "b",
+          "X"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "S",
+        "rhs": [
+          "c"
+        ],
+        "labels": []
+      }
+    ],
+    "a": [
+      {
+        "lhs": "a",
+        "rhs": [
+          "b",
+          "X"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "a",
+        "rhs": [
+          "c"
+        ],
+        "labels": []
+      }
+    ],
+    "b": [
+      {
+        "lhs": "b",
+        "rhs": [
+          "c",
+          "X"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "b",
+        "rhs": [
+          "c"
+        ],
+        "labels": []
+      }
+    ],
+    "c": [
+      {
+        "lhs": "c",
+        "rhs": [],
+        "labels": []
+      },
+      {
+        "lhs": "c",
+        "rhs": [
+          "c"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "c",
+        "rhs": [
+          "X"
+        ],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "X :: X\n\nS :: a | b X | c\na :: b X | c\nb :: c X | c\nc :: lambda | c | X\n",
+  "nullable": [
+    "b",
+    "a",
+    "c",
+    "S"
+  ]
+}

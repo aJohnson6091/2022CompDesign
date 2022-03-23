@@ -1,0 +1,6 @@
+X :: X
+
+S :: a | b X | c
+a :: b X | c
+b :: c X | c
+c :: lambda | c | X

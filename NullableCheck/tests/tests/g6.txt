@@ -1,0 +1,11 @@
+PLUS :: \+
+MINUS :: -
+STAR :: \*
+ID :: \w+
+LP :: \(
+RP :: \)
+
+S :: expr
+expr :: expr PLUS term | expr MINUS term | term
+term :: term STAR factor | factor
+factor :: ID | LP expr RP

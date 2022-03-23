@@ -1,0 +1,75 @@
+{
+  "terminals": [
+    "PLUS",
+    "TIMES",
+    "LP",
+    "RP",
+    "NUM"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "e"
+        ],
+        "labels": []
+      }
+    ],
+    "e": [
+      {
+        "lhs": "e",
+        "rhs": [
+          "e",
+          "PLUS",
+          "e"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "e",
+        "rhs": [
+          "t"
+        ],
+        "labels": []
+      }
+    ],
+    "f": [
+      {
+        "lhs": "f",
+        "rhs": [
+          "NUM"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "f",
+        "rhs": [
+          "LP",
+          "e",
+          "RP"
+        ],
+        "labels": []
+      }
+    ],
+    "t": [
+      {
+        "lhs": "t",
+        "rhs": [
+          "t",
+          "TIMES",
+          "t"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "t",
+        "rhs": [
+          "f"
+        ],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "PLUS :: [-+]\nTIMES :: [*/]\nLP :: [(]\nRP :: [)]\nNUM :: \\d+\nS :: e\ne :: e PLUS e | t\nt :: t TIMES t | f\nf :: NUM | LP e RP\n"
+}

@@ -1,0 +1,85 @@
+{
+  "terminals": [
+    "X"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "a"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "S",
+        "rhs": [
+          "b",
+          "X"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "S",
+        "rhs": [
+          "c"
+        ],
+        "labels": []
+      }
+    ],
+    "a": [
+      {
+        "lhs": "a",
+        "rhs": [
+          "b",
+          "X"
+        ],
+        "labels": []
+      }
+    ],
+    "b": [
+      {
+        "lhs": "b",
+        "rhs": [
+          "c",
+          "X"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "b",
+        "rhs": [
+          "c"
+        ],
+        "labels": []
+      }
+    ],
+    "c": [
+      {
+        "lhs": "c",
+        "rhs": [],
+        "labels": []
+      },
+      {
+        "lhs": "c",
+        "rhs": [
+          "c"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "c",
+        "rhs": [
+          "X"
+        ],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "X :: X\nS :: a | b X | c\na :: b X \nb :: c X | c\nc :: lambda | c | X\n",
+  "nullable": [
+    "c",
+    "S",
+    "b"
+  ]
+}

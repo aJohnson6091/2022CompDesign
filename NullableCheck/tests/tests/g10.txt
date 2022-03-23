@@ -1,0 +1,19 @@
+NUM :: \d+
+ID :: [A-Za-z]\w*
+LP :: [(]
+RP :: [)]
+COMMA :: ,
+ADDOP :: [-+]
+MULOP :: [*/]
+EQ :: =
+SEMI :: ;
+
+S :: program
+program :: stmt SEMI program | stmt
+stmt :: assign | expr | lambda
+assign :: tuple EQ tuple2
+tuple :: tuple COMMA expr | expr 
+tuple2 :: tuple2 COMMA expr | expr 
+expr :: expr ADDOP term | term
+term :: term MULOP factor | factor
+factor :: ID | LP expr RP | NUM
