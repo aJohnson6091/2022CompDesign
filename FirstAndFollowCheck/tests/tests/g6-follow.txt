@@ -1,0 +1,147 @@
+{
+  "terminals": [
+    "PLUS",
+    "MINUS",
+    "STAR",
+    "ID",
+    "LP",
+    "RP"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "expr"
+        ],
+        "labels": []
+      }
+    ],
+    "expr": [
+      {
+        "lhs": "expr",
+        "rhs": [
+          "expr",
+          "PLUS",
+          "term"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "expr",
+        "rhs": [
+          "expr",
+          "MINUS",
+          "term"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "expr",
+        "rhs": [
+          "term"
+        ],
+        "labels": []
+      }
+    ],
+    "factor": [
+      {
+        "lhs": "factor",
+        "rhs": [
+          "ID"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "factor",
+        "rhs": [
+          "LP",
+          "expr",
+          "RP"
+        ],
+        "labels": []
+      }
+    ],
+    "term": [
+      {
+        "lhs": "term",
+        "rhs": [
+          "term",
+          "STAR",
+          "factor"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "term",
+        "rhs": [
+          "factor"
+        ],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "PLUS :: \\+\nMINUS :: -\nSTAR :: \\*\nID :: \\w+\nLP :: \\(\nRP :: \\)\n\nS :: expr\nexpr :: expr PLUS term | expr MINUS term | term\nterm :: term STAR factor | factor\nfactor :: ID | LP expr RP\n",
+  "nullable": [],
+  "first": {
+    "PLUS": [
+      "PLUS"
+    ],
+    "MINUS": [
+      "MINUS"
+    ],
+    "STAR": [
+      "STAR"
+    ],
+    "ID": [
+      "ID"
+    ],
+    "LP": [
+      "LP"
+    ],
+    "RP": [
+      "RP"
+    ],
+    "S": [
+      "ID",
+      "LP"
+    ],
+    "expr": [
+      "ID",
+      "LP"
+    ],
+    "term": [
+      "ID",
+      "LP"
+    ],
+    "factor": [
+      "ID",
+      "LP"
+    ]
+  },
+  "follow": {
+    "S": [
+      "$"
+    ],
+    "expr": [
+      "MINUS",
+      "$",
+      "PLUS",
+      "RP"
+    ],
+    "term": [
+      "MINUS",
+      "PLUS",
+      "RP",
+      "$",
+      "STAR"
+    ],
+    "factor": [
+      "MINUS",
+      "PLUS",
+      "RP",
+      "$",
+      "STAR"
+    ]
+  }
+}

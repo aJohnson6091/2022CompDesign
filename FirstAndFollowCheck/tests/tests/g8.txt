@@ -1,0 +1,16 @@
+DCOLON :: ::
+COLON :: :
+PIPE :: \|
+NOTNEWLINE :: [^\n]*
+S :: itemlist
+itemlist :: item itemlist | item
+item :: terminal | nonterminal
+terminal :: TNAME DCOLON NOTNEWLINE
+TNAME :: [A-Z][^ :]*
+nonterminal :: NTNAME COLON prodlist
+NTNAME :: [a-z][^ :]*
+prodlist :: production PIPE prodlist | production
+production :: TNAME | NTNAME | LAMBDA
+LAMBDA :: lambda
+COMMENT :: ^#[^\n]*
+WHITESPACE :: \S+

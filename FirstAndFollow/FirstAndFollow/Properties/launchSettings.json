@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FirstAndFollow": {
+      "commandName": "Project",
+      "commandLineArgs": "g1.txt g1-grammar.txt"
+    }
+  }
+}

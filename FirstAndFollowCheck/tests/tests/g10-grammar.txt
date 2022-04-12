@@ -1,0 +1,163 @@
+{
+  "terminals": [
+    "NUM",
+    "ID",
+    "LP",
+    "RP",
+    "COMMA",
+    "ADDOP",
+    "MULOP",
+    "EQ",
+    "SEMI"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "stmt",
+          "SEMI",
+          "S"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "S",
+        "rhs": [
+          "stmt"
+        ],
+        "labels": []
+      }
+    ],
+    "assign": [
+      {
+        "lhs": "assign",
+        "rhs": [
+          "tuple",
+          "EQ",
+          "tuple2"
+        ],
+        "labels": []
+      }
+    ],
+    "expr": [
+      {
+        "lhs": "expr",
+        "rhs": [
+          "expr",
+          "ADDOP",
+          "term"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "expr",
+        "rhs": [
+          "term"
+        ],
+        "labels": []
+      }
+    ],
+    "factor": [
+      {
+        "lhs": "factor",
+        "rhs": [
+          "ID"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "factor",
+        "rhs": [
+          "LP",
+          "expr",
+          "RP"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "factor",
+        "rhs": [
+          "NUM"
+        ],
+        "labels": []
+      }
+    ],
+    "stmt": [
+      {
+        "lhs": "stmt",
+        "rhs": [
+          "assign"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "stmt",
+        "rhs": [
+          "expr"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "stmt",
+        "rhs": [],
+        "labels": []
+      }
+    ],
+    "term": [
+      {
+        "lhs": "term",
+        "rhs": [
+          "term",
+          "MULOP",
+          "factor"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "term",
+        "rhs": [
+          "factor"
+        ],
+        "labels": []
+      }
+    ],
+    "tuple": [
+      {
+        "lhs": "tuple",
+        "rhs": [
+          "tuple",
+          "COMMA",
+          "expr"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "tuple",
+        "rhs": [
+          "expr"
+        ],
+        "labels": []
+      }
+    ],
+    "tuple2": [
+      {
+        "lhs": "tuple2",
+        "rhs": [
+          "tuple2",
+          "COMMA",
+          "expr"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "tuple2",
+        "rhs": [
+          "expr"
+        ],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "NUM :: \\d+\nID :: [A-Za-z]\\w*\nLP :: [(]\nRP :: [)]\nCOMMA :: ,\nADDOP :: [-+]\nMULOP :: [*/]\nEQ :: =\nSEMI :: ;\n\nS :: stmt SEMI S | stmt\nstmt :: assign | expr | lambda\nassign :: tuple EQ tuple2\ntuple :: tuple COMMA expr | expr \ntuple2 :: tuple2 COMMA expr | expr \nexpr :: expr ADDOP term | term\nterm :: term MULOP factor | factor\nfactor :: ID | LP expr RP | NUM\n"
+}

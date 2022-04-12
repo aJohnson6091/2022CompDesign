@@ -1,0 +1,89 @@
+{
+  "terminals": [
+    "ID",
+    "COMMA",
+    "LP",
+    "RP"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "LP",
+          "plist",
+          "RP"
+        ],
+        "labels": []
+      }
+    ],
+    "plist": [
+      {
+        "lhs": "plist",
+        "rhs": [],
+        "labels": []
+      },
+      {
+        "lhs": "plist",
+        "rhs": [
+          "ID"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "plist",
+        "rhs": [
+          "ID",
+          "COMMA",
+          "plist'"
+        ],
+        "labels": []
+      }
+    ],
+    "plist'": [
+      {
+        "lhs": "plist'",
+        "rhs": [
+          "ID",
+          "COMMA",
+          "plist'"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "plist'",
+        "rhs": [
+          "ID"
+        ],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "ID :: ID\nCOMMA :: ,\nLP :: \\(\nRP :: \\)\n\nS :: LP plist RP\nplist :: lambda | ID | ID COMMA plist'\nplist' :: ID COMMA plist' | ID\n",
+  "nullable": [
+    "plist"
+  ],
+  "first": {
+    "ID": [
+      "ID"
+    ],
+    "COMMA": [
+      "COMMA"
+    ],
+    "LP": [
+      "LP"
+    ],
+    "RP": [
+      "RP"
+    ],
+    "S": [
+      "LP"
+    ],
+    "plist": [
+      "ID"
+    ],
+    "plist'": [
+      "ID"
+    ]
+  }
+}

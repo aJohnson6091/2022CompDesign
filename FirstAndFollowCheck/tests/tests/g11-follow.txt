@@ -1,0 +1,448 @@
+{
+  "terminals": [
+    "ACT",
+    "ROMAN_NUMERAL",
+    "ADJ",
+    "YOU",
+    "ARE",
+    "AS",
+    "A",
+    "NOUN",
+    "ACTOR",
+    "LB",
+    "RB",
+    "ENTER",
+    "EXIT",
+    "IS",
+    "QM",
+    "IF",
+    "SO",
+    "CMA",
+    "LET",
+    "US",
+    "PROCEED",
+    "TO",
+    "SCENE",
+    "OPEN",
+    "YOUR",
+    "HEART",
+    "SPEAK",
+    "MIND",
+    "PUNC",
+    "COLON"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "ACT",
+          "ROMAN_NUMERAL",
+          "scene_list"
+        ],
+        "labels": []
+      }
+    ],
+    "adj_list": [
+      {
+        "lhs": "adj_list",
+        "rhs": [
+          "ADJ",
+          "adj_list"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "adj_list",
+        "rhs": [],
+        "labels": []
+      }
+    ],
+    "assign_sentence": [
+      {
+        "lhs": "assign_sentence",
+        "rhs": [
+          "YOU",
+          "ARE",
+          "AS",
+          "ADJ",
+          "AS",
+          "A",
+          "adj_list",
+          "NOUN"
+        ],
+        "labels": []
+      }
+    ],
+    "body_list": [
+      {
+        "lhs": "body_list",
+        "rhs": [
+          "body_stmt",
+          "body_list"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "body_list",
+        "rhs": [],
+        "labels": []
+      }
+    ],
+    "body_stmt": [
+      {
+        "lhs": "body_stmt",
+        "rhs": [
+          "ACTOR",
+          "COLON",
+          "sentence_list"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "body_stmt",
+        "rhs": [
+          "LB",
+          "ENTER",
+          "ACTOR",
+          "RB"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "body_stmt",
+        "rhs": [
+          "LB",
+          "EXIT",
+          "ACTOR",
+          "RB"
+        ],
+        "labels": []
+      }
+    ],
+    "comparison_sentence": [
+      {
+        "lhs": "comparison_sentence",
+        "rhs": [
+          "IS",
+          "ACTOR",
+          "AS",
+          "ADJ",
+          "AS",
+          "ACTOR",
+          "QM"
+        ],
+        "labels": []
+      }
+    ],
+    "conditional_sentence": [
+      {
+        "lhs": "conditional_sentence",
+        "rhs": [
+          "IF",
+          "SO",
+          "CMA",
+          "sentence"
+        ],
+        "labels": []
+      }
+    ],
+    "goto_sentence": [
+      {
+        "lhs": "goto_sentence",
+        "rhs": [
+          "LET",
+          "US",
+          "PROCEED",
+          "TO",
+          "SCENE",
+          "ROMAN_NUMERAL"
+        ],
+        "labels": []
+      }
+    ],
+    "io_sentence": [
+      {
+        "lhs": "io_sentence",
+        "rhs": [
+          "OPEN",
+          "YOUR",
+          "HEART"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "io_sentence",
+        "rhs": [
+          "SPEAK",
+          "YOUR",
+          "MIND"
+        ],
+        "labels": []
+      }
+    ],
+    "scene_list": [
+      {
+        "lhs": "scene_list",
+        "rhs": [
+          "SCENE",
+          "ROMAN_NUMERAL",
+          "body_list",
+          "scene_list"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "scene_list",
+        "rhs": [],
+        "labels": []
+      }
+    ],
+    "sentence": [
+      {
+        "lhs": "sentence",
+        "rhs": [
+          "io_sentence"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "sentence",
+        "rhs": [
+          "assign_sentence"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "sentence",
+        "rhs": [
+          "comparison_sentence"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "sentence",
+        "rhs": [
+          "goto_sentence"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "sentence",
+        "rhs": [
+          "conditional_sentence"
+        ],
+        "labels": []
+      }
+    ],
+    "sentence_list": [
+      {
+        "lhs": "sentence_list",
+        "rhs": [
+          "sentence",
+          "PUNC",
+          "sentence_list"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "sentence_list",
+        "rhs": [],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "ACT :: \\bact\\b\nROMAN_NUMERAL :: \\b(I{1,3}|IV|VI{0,3}|I?X)\\b\nADJ :: \\b(lovely|ugly|pretty|foul|handsome|disgusting)\\b\nYOU :: \\byou\\b\nARE :: are\nAS :: as\nA :: \\ba\\b\nNOUN :: \\b(king|queen|noble|crown)\\b\nACTOR :: \\b(Romeo|Juliet)\\b\nLB :: \\[\nRB :: \\]\nENTER :: enter\nEXIT :: exit\nIS :: is\nQM :: \\?\nIF :: if\nSO :: so\nCMA :: ,\nLET :: let\nUS :: us\nPROCEED :: proceed\nTO :: to\nSCENE :: scene\nOPEN :: open\nYOUR :: your\nHEART :: heart\nSPEAK :: speak\nMIND :: mind\nPUNC :: [.!]\nCOLON :: :\n\nS :: ACT ROMAN_NUMERAL scene_list \nadj_list :: ADJ adj_list | lambda\nassign_sentence :: YOU ARE AS ADJ AS A adj_list NOUN\nbody_list :: body_stmt body_list | lambda\nbody_stmt :: ACTOR COLON sentence_list | LB ENTER ACTOR RB | LB EXIT ACTOR RB\ncomparison_sentence :: IS ACTOR AS ADJ AS ACTOR QM\nconditional_sentence :: IF SO CMA sentence\ngoto_sentence :: LET US PROCEED TO SCENE ROMAN_NUMERAL\nio_sentence :: OPEN YOUR HEART | SPEAK YOUR MIND\nscene_list :: SCENE ROMAN_NUMERAL body_list scene_list | lambda\nsentence_list :: sentence PUNC sentence_list | lambda\nsentence :: io_sentence | assign_sentence | comparison_sentence | goto_sentence | conditional_sentence\n",
+  "nullable": [
+    "sentence_list",
+    "adj_list",
+    "scene_list",
+    "body_list"
+  ],
+  "first": {
+    "ACT": [
+      "ACT"
+    ],
+    "ROMAN_NUMERAL": [
+      "ROMAN_NUMERAL"
+    ],
+    "ADJ": [
+      "ADJ"
+    ],
+    "YOU": [
+      "YOU"
+    ],
+    "ARE": [
+      "ARE"
+    ],
+    "AS": [
+      "AS"
+    ],
+    "A": [
+      "A"
+    ],
+    "NOUN": [
+      "NOUN"
+    ],
+    "ACTOR": [
+      "ACTOR"
+    ],
+    "LB": [
+      "LB"
+    ],
+    "RB": [
+      "RB"
+    ],
+    "ENTER": [
+      "ENTER"
+    ],
+    "EXIT": [
+      "EXIT"
+    ],
+    "IS": [
+      "IS"
+    ],
+    "QM": [
+      "QM"
+    ],
+    "IF": [
+      "IF"
+    ],
+    "SO": [
+      "SO"
+    ],
+    "CMA": [
+      "CMA"
+    ],
+    "LET": [
+      "LET"
+    ],
+    "US": [
+      "US"
+    ],
+    "PROCEED": [
+      "PROCEED"
+    ],
+    "TO": [
+      "TO"
+    ],
+    "SCENE": [
+      "SCENE"
+    ],
+    "OPEN": [
+      "OPEN"
+    ],
+    "YOUR": [
+      "YOUR"
+    ],
+    "HEART": [
+      "HEART"
+    ],
+    "SPEAK": [
+      "SPEAK"
+    ],
+    "MIND": [
+      "MIND"
+    ],
+    "PUNC": [
+      "PUNC"
+    ],
+    "COLON": [
+      "COLON"
+    ],
+    "S": [
+      "ACT"
+    ],
+    "adj_list": [
+      "ADJ"
+    ],
+    "assign_sentence": [
+      "YOU"
+    ],
+    "body_list": [
+      "LB",
+      "ACTOR"
+    ],
+    "body_stmt": [
+      "LB",
+      "ACTOR"
+    ],
+    "comparison_sentence": [
+      "IS"
+    ],
+    "conditional_sentence": [
+      "IF"
+    ],
+    "goto_sentence": [
+      "LET"
+    ],
+    "io_sentence": [
+      "SPEAK",
+      "OPEN"
+    ],
+    "scene_list": [
+      "SCENE"
+    ],
+    "sentence_list": [
+      "LET",
+      "OPEN",
+      "YOU",
+      "SPEAK",
+      "IS",
+      "IF"
+    ],
+    "sentence": [
+      "LET",
+      "YOU",
+      "OPEN",
+      "SPEAK",
+      "IS",
+      "IF"
+    ]
+  },
+  "follow": {
+    "S": [
+      "$"
+    ],
+    "adj_list": [
+      "NOUN"
+    ],
+    "assign_sentence": [
+      "PUNC"
+    ],
+    "body_list": [
+      "SCENE",
+      "$"
+    ],
+    "body_stmt": [
+      "LB",
+      "SCENE",
+      "ACTOR",
+      "$"
+    ],
+    "comparison_sentence": [
+      "PUNC"
+    ],
+    "conditional_sentence": [
+      "PUNC"
+    ],
+    "goto_sentence": [
+      "PUNC"
+    ],
+    "io_sentence": [
+      "PUNC"
+    ],
+    "scene_list": [
+      "$"
+    ],
+    "sentence_list": [
+      "LB",
+      "SCENE",
+      "ACTOR",
+      "$"
+    ],
+    "sentence": [
+      "PUNC"
+    ]
+  }
+}

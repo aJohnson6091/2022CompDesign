@@ -1,0 +1,63 @@
+ADDOP :: [+]
+AND :: \band\b
+CMA :: ,
+COMMENT :: //[^\n]*
+DEF :: \bdef\b
+ELSE :: \belse\b
+EQ :: =
+IF :: \bif\b
+LB :: \[
+LBR :: [{]
+LP :: [(]
+MINUS :: -
+MULOP :: [*/]
+NOT :: \bnot\b
+NUM :: -?(\d+|\d+\.\d*|\.\d+)([Ee][-+]?\d+)?
+NUMBER :: \bnum\b
+OR :: \bor\b
+PRINT :: \bprint\b
+RB :: \]
+RBR :: [}]
+RP :: [)]
+RELOP :: >=|<=|!=|==|>|<
+RETURN :: \breturn\b
+SEMI :: ;
+SHIFT :: \bshift\b
+STRING :: \bstring\b
+STRING-CONSTANT :: "(\\"|[^"])*" | '(\\'|[^'])*'
+VAR :: \bvar\b
+WHILE :: \bwhile\b
+ID :: [A-Za-z_]\w*
+
+S :: var-decl-list func-decl-list
+func-decl-list :: func-decl func-decl-list | lambda
+func-decl :: DEF ID LP type-list RP optional-return-spec brace-block
+optional-return-spec :: RETURN type | lambda
+brace-block :: LBR var-decl-list stmts RBR
+type-list :: lambda | ID type type-list'
+type-list' :: CMA ID type type-list' | lambda
+type :: non-array-type | non-array-type LB size-list RB
+non-array-type :: NUMBER | STRING
+size-list :: NUM | NUM CMA size-list
+stmts :: stmt SEMI stmts | lambda
+stmt :: assign SEMI | func-call SEMI | loop | cond | return-stmt SEMI
+return-stmt :: RETURN | RETURN expr
+func-call :: ID LP optional-expr-list RP | builtin-func-call
+builtin-func-call :: PRINT LP expr-list RP | SHIFT LP expr CMA expr RP
+optional-expr-list :: lambda | expr-list
+expr-list ::  expr expr-list'
+expr-list' :: lambda | CMA expr expr-list'
+loop :: WHILE LP expr RP brace-block
+cond :: IF expr brace-block | IF expr brace-block ELSE brace-block
+var-decl-list :: var-decl SEMI var-decl-list | lambda
+var-decl :: VAR ID type
+expr :: orexp
+orexp :: orexp OR andexp | andexp
+andexp :: andexp AND notexp | notexp
+notexp :: NOT notexp | rel
+rel :: sum RELOP sum | sum
+sum :: sum ADDOP term | sum MINUS term | term
+term :: term MULOP neg | neg
+neg :: MINUS neg | factor
+factor :: ID | NUM | LP expr RP | func-call | ID LB expr-list RB | STRING-CONSTANT
+assign :: ID EQ expr

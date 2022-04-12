@@ -1,0 +1,43 @@
+ACT :: \bact\b
+ROMAN_NUMERAL :: \b(I{1,3}|IV|VI{0,3}|I?X)\b
+ADJ :: \b(lovely|ugly|pretty|foul|handsome|disgusting)\b
+YOU :: \byou\b
+ARE :: are
+AS :: as
+A :: \ba\b
+NOUN :: \b(king|queen|noble|crown)\b
+ACTOR :: \b(Romeo|Juliet)\b
+LB :: \[
+RB :: \]
+ENTER :: enter
+EXIT :: exit
+IS :: is
+QM :: \?
+IF :: if
+SO :: so
+CMA :: ,
+LET :: let
+US :: us
+PROCEED :: proceed
+TO :: to
+SCENE :: scene
+OPEN :: open
+YOUR :: your
+HEART :: heart
+SPEAK :: speak
+MIND :: mind
+PUNC :: [.!]
+COLON :: :
+
+S :: ACT ROMAN_NUMERAL scene_list 
+adj_list :: ADJ adj_list | lambda
+assign_sentence :: YOU ARE AS ADJ AS A adj_list NOUN
+body_list :: body_stmt body_list | lambda
+body_stmt :: ACTOR COLON sentence_list | LB ENTER ACTOR RB | LB EXIT ACTOR RB
+comparison_sentence :: IS ACTOR AS ADJ AS ACTOR QM
+conditional_sentence :: IF SO CMA sentence
+goto_sentence :: LET US PROCEED TO SCENE ROMAN_NUMERAL
+io_sentence :: OPEN YOUR HEART | SPEAK YOUR MIND
+scene_list :: SCENE ROMAN_NUMERAL body_list scene_list | lambda
+sentence_list :: sentence PUNC sentence_list | lambda
+sentence :: io_sentence | assign_sentence | comparison_sentence | goto_sentence | conditional_sentence

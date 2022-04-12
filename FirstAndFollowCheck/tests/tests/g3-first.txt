@@ -1,0 +1,886 @@
+{
+  "terminals": [
+    "STRUCT",
+    "ID",
+    "TYPE",
+    "SEMI",
+    "LB",
+    "RB",
+    "NUM",
+    "LP",
+    "RP",
+    "COMMA",
+    "LBR",
+    "RBR",
+    "EQ",
+    "OROR",
+    "ANDAND",
+    "WHILE",
+    "NOT",
+    "RELOP",
+    "PLUS",
+    "STAR",
+    "BITOP",
+    "BITNOT",
+    "DOT",
+    "IF",
+    "ELSE",
+    "VOID"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "program"
+        ],
+        "labels": []
+      }
+    ],
+    "addexp": [
+      {
+        "lhs": "addexp",
+        "rhs": [
+          "addexp",
+          "PLUS",
+          "mulexp"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "addexp",
+        "rhs": [
+          "mulexp"
+        ],
+        "labels": []
+      }
+    ],
+    "andexp": [
+      {
+        "lhs": "andexp",
+        "rhs": [
+          "andexp",
+          "ANDAND",
+          "notexp"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "andexp",
+        "rhs": [
+          "notexp"
+        ],
+        "labels": []
+      }
+    ],
+    "assign": [
+      {
+        "lhs": "assign",
+        "rhs": [
+          "ID",
+          "EQ",
+          "expr"
+        ],
+        "labels": []
+      }
+    ],
+    "bitexp": [
+      {
+        "lhs": "bitexp",
+        "rhs": [
+          "bitexp",
+          "BITOP",
+          "unaryexp"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "bitexp",
+        "rhs": [
+          "unaryexp"
+        ],
+        "labels": []
+      }
+    ],
+    "braceblock": [
+      {
+        "lhs": "braceblock",
+        "rhs": [
+          "LBR",
+          "vardecls",
+          "stmts",
+          "RBR"
+        ],
+        "labels": []
+      }
+    ],
+    "calllist": [
+      {
+        "lhs": "calllist",
+        "rhs": [],
+        "labels": []
+      },
+      {
+        "lhs": "calllist",
+        "rhs": [
+          "expr"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "calllist",
+        "rhs": [
+          "expr",
+          "COMMA",
+          "calllist2"
+        ],
+        "labels": []
+      }
+    ],
+    "calllist2": [
+      {
+        "lhs": "calllist2",
+        "rhs": [
+          "expr"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "calllist2",
+        "rhs": [
+          "expr",
+          "COMMA",
+          "calllist2"
+        ],
+        "labels": []
+      }
+    ],
+    "cond": [
+      {
+        "lhs": "cond",
+        "rhs": [
+          "IF",
+          "LP",
+          "expr",
+          "RP",
+          "braceblock"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "cond",
+        "rhs": [
+          "IF",
+          "LP",
+          "expr",
+          "RP",
+          "braceblock",
+          "ELSE",
+          "braceblock"
+        ],
+        "labels": []
+      }
+    ],
+    "expr": [
+      {
+        "lhs": "expr",
+        "rhs": [
+          "orexp"
+        ],
+        "labels": []
+      }
+    ],
+    "factor": [
+      {
+        "lhs": "factor",
+        "rhs": [
+          "NUM"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "factor",
+        "rhs": [
+          "LP",
+          "expr",
+          "RP"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "factor",
+        "rhs": [
+          "ID",
+          "postfix"
+        ],
+        "labels": []
+      }
+    ],
+    "ftype": [
+      {
+        "lhs": "ftype",
+        "rhs": [
+          "TYPE"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "ftype",
+        "rhs": [
+          "VOID"
+        ],
+        "labels": []
+      }
+    ],
+    "funccall": [
+      {
+        "lhs": "funccall",
+        "rhs": [
+          "ID",
+          "LP",
+          "calllist",
+          "RP"
+        ],
+        "labels": []
+      }
+    ],
+    "funcdecl": [
+      {
+        "lhs": "funcdecl",
+        "rhs": [
+          "ftype",
+          "ID",
+          "LP",
+          "paramlist",
+          "RP",
+          "braceblock"
+        ],
+        "labels": []
+      }
+    ],
+    "funcdecls": [
+      {
+        "lhs": "funcdecls",
+        "rhs": [
+          "funcdecl",
+          "funcdecls"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "funcdecls",
+        "rhs": [],
+        "labels": []
+      }
+    ],
+    "loop": [
+      {
+        "lhs": "loop",
+        "rhs": [
+          "WHILE",
+          "LP",
+          "expr",
+          "RP",
+          "braceblock"
+        ],
+        "labels": []
+      }
+    ],
+    "mulexp": [
+      {
+        "lhs": "mulexp",
+        "rhs": [
+          "mulexp",
+          "STAR",
+          "bitexp"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "mulexp",
+        "rhs": [
+          "bitexp"
+        ],
+        "labels": []
+      }
+    ],
+    "notexp": [
+      {
+        "lhs": "notexp",
+        "rhs": [
+          "NOT",
+          "notexp"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "notexp",
+        "rhs": [
+          "relexp"
+        ],
+        "labels": []
+      }
+    ],
+    "optsize": [
+      {
+        "lhs": "optsize",
+        "rhs": [
+          "LB",
+          "NUM",
+          "RB"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "optsize",
+        "rhs": [],
+        "labels": []
+      }
+    ],
+    "orexp": [
+      {
+        "lhs": "orexp",
+        "rhs": [
+          "orexp",
+          "OROR",
+          "andexp"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "orexp",
+        "rhs": [
+          "andexp"
+        ],
+        "labels": []
+      }
+    ],
+    "param": [
+      {
+        "lhs": "param",
+        "rhs": [
+          "TYPE",
+          "ID",
+          "optsize"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "param",
+        "rhs": [
+          "STRUCT",
+          "ID",
+          "ID",
+          "optsize"
+        ],
+        "labels": []
+      }
+    ],
+    "paramlist": [
+      {
+        "lhs": "paramlist",
+        "rhs": [],
+        "labels": []
+      },
+      {
+        "lhs": "paramlist",
+        "rhs": [
+          "param"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "paramlist",
+        "rhs": [
+          "param",
+          "COMMA",
+          "paramlist2"
+        ],
+        "labels": []
+      }
+    ],
+    "paramlist2": [
+      {
+        "lhs": "paramlist2",
+        "rhs": [
+          "param"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "paramlist2",
+        "rhs": [
+          "param",
+          "COMMA",
+          "paramlist2"
+        ],
+        "labels": []
+      }
+    ],
+    "postfix": [
+      {
+        "lhs": "postfix",
+        "rhs": [
+          "LB",
+          "expr",
+          "RB",
+          "postfix"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "postfix",
+        "rhs": [
+          "LP",
+          "calllist",
+          "RP",
+          "postfix"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "postfix",
+        "rhs": [
+          "DOT",
+          "ID",
+          "postfix"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "postfix",
+        "rhs": [],
+        "labels": []
+      }
+    ],
+    "program": [
+      {
+        "lhs": "program",
+        "rhs": [
+          "typedecls",
+          "vardecls",
+          "funcdecls"
+        ],
+        "labels": []
+      }
+    ],
+    "relexp": [
+      {
+        "lhs": "relexp",
+        "rhs": [
+          "addexp",
+          "RELOP",
+          "addexp"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "relexp",
+        "rhs": [
+          "addexp"
+        ],
+        "labels": []
+      }
+    ],
+    "stmt": [
+      {
+        "lhs": "stmt",
+        "rhs": [
+          "assign",
+          "SEMI"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "stmt",
+        "rhs": [
+          "cond"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "stmt",
+        "rhs": [
+          "loop"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "stmt",
+        "rhs": [
+          "funccall",
+          "SEMI"
+        ],
+        "labels": []
+      }
+    ],
+    "stmts": [
+      {
+        "lhs": "stmts",
+        "rhs": [
+          "stmt",
+          "stmts"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "stmts",
+        "rhs": [],
+        "labels": []
+      }
+    ],
+    "structdecl": [
+      {
+        "lhs": "structdecl",
+        "rhs": [
+          "STRUCT",
+          "ID",
+          "LBR",
+          "vardecls",
+          "RBR",
+          "SEMI"
+        ],
+        "labels": []
+      }
+    ],
+    "typedecls": [
+      {
+        "lhs": "typedecls",
+        "rhs": [
+          "structdecl",
+          "typedecls"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "typedecls",
+        "rhs": [],
+        "labels": []
+      }
+    ],
+    "unaryexp": [
+      {
+        "lhs": "unaryexp",
+        "rhs": [
+          "PLUS",
+          "unaryexp"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "unaryexp",
+        "rhs": [
+          "BITNOT",
+          "unaryexp"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "unaryexp",
+        "rhs": [
+          "factor"
+        ],
+        "labels": []
+      }
+    ],
+    "vardecl": [
+      {
+        "lhs": "vardecl",
+        "rhs": [
+          "TYPE",
+          "ID",
+          "optsize",
+          "SEMI"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "vardecl",
+        "rhs": [
+          "STRUCT",
+          "ID",
+          "optsize",
+          "SEMI"
+        ],
+        "labels": []
+      }
+    ],
+    "vardecls": [
+      {
+        "lhs": "vardecls",
+        "rhs": [
+          "vardecl",
+          "vardecls"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "vardecls",
+        "rhs": [],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "STRUCT :: \\bstruct\\b\nID :: [A-Za-z_]\\w*\nTYPE :: \\b(int|float)\\b\nSEMI :: ;\nLB :: \\[\nRB :: \\]\nNUM :: \\d+\nLP :: \\(\nRP :: \\)\nCOMMA :: ,\nLBR :: \\{\nRBR :: \\}\nEQ :: =\nOROR :: \\|\\|\nANDAND :: &&\nWHILE :: \\bwhile\\b\nNOT :: !\nRELOP :: >=|<=|>|<|!=|==\nPLUS :: [-+]\nSTAR :: [*/%]\nBITOP :: [|&^]|<<|>>\nBITNOT :: ~\nDOT :: \\.\nIF :: \\bif\\b\nELSE :: \\belse\\b\nVOID :: \\bvoid\\b\n\nS           ::  program\nprogram     ::  typedecls vardecls funcdecls  \ntypedecls   ::  structdecl typedecls | lambda \nstructdecl  ::  STRUCT ID LBR vardecls RBR SEMI \nvardecls    ::  vardecl vardecls\n            |   lambda  \nvardecl     ::  TYPE ID optsize SEMI\n            |   STRUCT ID optsize SEMI \noptsize     ::  LB NUM RB | lambda \nfuncdecls   ::  funcdecl funcdecls \n            |   lambda \nfuncdecl    ::  ftype ID LP paramlist RP braceblock \nftype       ::  TYPE | VOID\nparamlist   ::  lambda \n            |   param \n            |   param COMMA paramlist2 \nparamlist2  ::  param  \n            |   param COMMA paramlist2 \nparam       ::  TYPE ID optsize | STRUCT ID ID optsize \nbraceblock  ::  LBR vardecls stmts RBR \nstmts       ::  stmt stmts \n            |   lambda \nstmt        ::  assign SEMI | cond | loop | funccall SEMI \nassign      ::  ID EQ expr \ncond        ::  IF LP expr RP braceblock \n            |   IF LP expr RP braceblock ELSE braceblock \nloop        ::  WHILE LP expr RP braceblock \nfunccall    ::  ID LP calllist RP \ncalllist    ::  lambda | expr | expr COMMA calllist2 \ncalllist2   ::  expr | expr COMMA calllist2 \nexpr        ::  orexp \norexp       ::  orexp OROR andexp | andexp \nandexp      ::  andexp ANDAND notexp | notexp \nnotexp      ::  NOT notexp | relexp \nrelexp      ::  addexp RELOP addexp | addexp \n# PLUS has + or -\naddexp      ::  addexp PLUS mulexp | mulexp \n#STAR has * or / or %\nmulexp      ::  mulexp STAR bitexp | bitexp \n#we have all these at the same level of precedence\n#BITOP = and, or, xor, shift left, shift right\nbitexp      ::  bitexp BITOP unaryexp | unaryexp \n#NOT is ~ and !\nunaryexp    ::  PLUS unaryexp | BITNOT unaryexp | factor\nfactor      ::  NUM | LP expr RP | ID postfix  \npostfix     ::  LB expr RB postfix | LP calllist RP postfix | DOT ID postfix | lambda \n\n",
+  "nullable": [
+    "typedecls",
+    "paramlist",
+    "optsize",
+    "calllist",
+    "vardecls",
+    "stmts",
+    "program",
+    "postfix",
+    "S",
+    "funcdecls"
+  ],
+  "first": {
+    "STRUCT": [
+      "STRUCT"
+    ],
+    "ID": [
+      "ID"
+    ],
+    "TYPE": [
+      "TYPE"
+    ],
+    "SEMI": [
+      "SEMI"
+    ],
+    "LB": [
+      "LB"
+    ],
+    "RB": [
+      "RB"
+    ],
+    "NUM": [
+      "NUM"
+    ],
+    "LP": [
+      "LP"
+    ],
+    "RP": [
+      "RP"
+    ],
+    "COMMA": [
+      "COMMA"
+    ],
+    "LBR": [
+      "LBR"
+    ],
+    "RBR": [
+      "RBR"
+    ],
+    "EQ": [
+      "EQ"
+    ],
+    "OROR": [
+      "OROR"
+    ],
+    "ANDAND": [
+      "ANDAND"
+    ],
+    "WHILE": [
+      "WHILE"
+    ],
+    "NOT": [
+      "NOT"
+    ],
+    "RELOP": [
+      "RELOP"
+    ],
+    "PLUS": [
+      "PLUS"
+    ],
+    "STAR": [
+      "STAR"
+    ],
+    "BITOP": [
+      "BITOP"
+    ],
+    "BITNOT": [
+      "BITNOT"
+    ],
+    "DOT": [
+      "DOT"
+    ],
+    "IF": [
+      "IF"
+    ],
+    "ELSE": [
+      "ELSE"
+    ],
+    "VOID": [
+      "VOID"
+    ],
+    "S": [
+      "TYPE",
+      "STRUCT",
+      "VOID"
+    ],
+    "program": [
+      "TYPE",
+      "STRUCT",
+      "VOID"
+    ],
+    "typedecls": [
+      "STRUCT"
+    ],
+    "structdecl": [
+      "STRUCT"
+    ],
+    "vardecls": [
+      "TYPE",
+      "STRUCT"
+    ],
+    "vardecl": [
+      "TYPE",
+      "STRUCT"
+    ],
+    "optsize": [
+      "LB"
+    ],
+    "funcdecls": [
+      "TYPE",
+      "VOID"
+    ],
+    "funcdecl": [
+      "TYPE",
+      "VOID"
+    ],
+    "ftype": [
+      "TYPE",
+      "VOID"
+    ],
+    "paramlist": [
+      "TYPE",
+      "STRUCT"
+    ],
+    "paramlist2": [
+      "TYPE",
+      "STRUCT"
+    ],
+    "param": [
+      "TYPE",
+      "STRUCT"
+    ],
+    "braceblock": [
+      "LBR"
+    ],
+    "stmts": [
+      "WHILE",
+      "IF",
+      "ID"
+    ],
+    "stmt": [
+      "WHILE",
+      "IF",
+      "ID"
+    ],
+    "assign": [
+      "ID"
+    ],
+    "cond": [
+      "IF"
+    ],
+    "loop": [
+      "WHILE"
+    ],
+    "funccall": [
+      "ID"
+    ],
+    "calllist": [
+      "NOT",
+      "ID",
+      "BITNOT",
+      "NUM",
+      "PLUS",
+      "LP"
+    ],
+    "calllist2": [
+      "NOT",
+      "ID",
+      "BITNOT",
+      "NUM",
+      "PLUS",
+      "LP"
+    ],
+    "expr": [
+      "NOT",
+      "ID",
+      "BITNOT",
+      "NUM",
+      "PLUS",
+      "LP"
+    ],
+    "orexp": [
+      "NOT",
+      "ID",
+      "BITNOT",
+      "NUM",
+      "PLUS",
+      "LP"
+    ],
+    "andexp": [
+      "NOT",
+      "ID",
+      "BITNOT",
+      "NUM",
+      "PLUS",
+      "LP"
+    ],
+    "notexp": [
+      "NOT",
+      "ID",
+      "BITNOT",
+      "NUM",
+      "PLUS",
+      "LP"
+    ],
+    "relexp": [
+      "ID",
+      "BITNOT",
+      "NUM",
+      "PLUS",
+      "LP"
+    ],
+    "addexp": [
+      "ID",
+      "BITNOT",
+      "NUM",
+      "PLUS",
+      "LP"
+    ],
+    "mulexp": [
+      "ID",
+      "BITNOT",
+      "NUM",
+      "PLUS",
+      "LP"
+    ],
+    "bitexp": [
+      "ID",
+      "BITNOT",
+      "NUM",
+      "PLUS",
+      "LP"
+    ],
+    "unaryexp": [
+      "ID",
+      "BITNOT",
+      "NUM",
+      "PLUS",
+      "LP"
+    ],
+    "factor": [
+      "NUM",
+      "LP",
+      "ID"
+    ],
+    "postfix": [
+      "LB",
+      "LP",
+      "DOT"
+    ]
+  }
+}

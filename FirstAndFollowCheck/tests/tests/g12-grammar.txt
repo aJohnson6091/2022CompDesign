@@ -1,0 +1,67 @@
+{
+  "terminals": [
+    "X"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "a"
+        ],
+        "labels": []
+      }
+    ],
+    "a": [
+      {
+        "lhs": "a",
+        "rhs": [
+          "b"
+        ],
+        "labels": []
+      }
+    ],
+    "b": [
+      {
+        "lhs": "b",
+        "rhs": [
+          "c"
+        ],
+        "labels": []
+      }
+    ],
+    "c": [
+      {
+        "lhs": "c",
+        "rhs": [
+          "d"
+        ],
+        "labels": []
+      }
+    ],
+    "d": [
+      {
+        "lhs": "d",
+        "rhs": [
+          "e"
+        ],
+        "labels": []
+      }
+    ],
+    "e": [
+      {
+        "lhs": "e",
+        "rhs": [
+          "X"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "e",
+        "rhs": [],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "X :: X\n\nS :: a\na :: b\nb :: c\nc :: d\nd :: e\ne :: X | lambda\n"
+}

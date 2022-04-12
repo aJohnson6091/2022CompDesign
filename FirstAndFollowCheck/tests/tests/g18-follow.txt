@@ -1,0 +1,131 @@
+{
+  "terminals": [
+    "PLUS",
+    "TIMES",
+    "LP",
+    "RP",
+    "NUM"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "e"
+        ],
+        "labels": []
+      }
+    ],
+    "e": [
+      {
+        "lhs": "e",
+        "rhs": [
+          "e",
+          "PLUS",
+          "e"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "e",
+        "rhs": [
+          "t"
+        ],
+        "labels": []
+      }
+    ],
+    "f": [
+      {
+        "lhs": "f",
+        "rhs": [
+          "NUM"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "f",
+        "rhs": [
+          "LP",
+          "e",
+          "RP"
+        ],
+        "labels": []
+      }
+    ],
+    "t": [
+      {
+        "lhs": "t",
+        "rhs": [
+          "t",
+          "TIMES",
+          "t"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "t",
+        "rhs": [
+          "f"
+        ],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "PLUS :: [-+]\nTIMES :: [*/]\nLP :: [(]\nRP :: [)]\nNUM :: \\d+\nS :: e\ne :: e PLUS e | t\nt :: t TIMES t | f\nf :: NUM | LP e RP\n",
+  "nullable": [],
+  "first": {
+    "PLUS": [
+      "PLUS"
+    ],
+    "TIMES": [
+      "TIMES"
+    ],
+    "LP": [
+      "LP"
+    ],
+    "RP": [
+      "RP"
+    ],
+    "NUM": [
+      "NUM"
+    ],
+    "S": [
+      "LP",
+      "NUM"
+    ],
+    "e": [
+      "LP",
+      "NUM"
+    ],
+    "t": [
+      "LP",
+      "NUM"
+    ],
+    "f": [
+      "LP",
+      "NUM"
+    ]
+  },
+  "follow": {
+    "S": [
+      "$"
+    ],
+    "e": [
+      "PLUS",
+      "$",
+      "RP"
+    ],
+    "t": [
+      "TIMES",
+      "$",
+      "PLUS",
+      "RP"
+    ],
+    "f": [
+      "TIMES",
+      "PLUS",
+      "$",
+      "RP"
+    ]
+  }
+}

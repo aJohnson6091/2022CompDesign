@@ -1,0 +1,41 @@
+{
+  "terminals": [
+    "X"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [],
+        "labels": []
+      },
+      {
+        "lhs": "S",
+        "rhs": [
+          "S",
+          "S"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "S",
+        "rhs": [
+          "X"
+        ],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "X :: x\nS :: lambda | S S | X\n",
+  "nullable": [
+    "S"
+  ],
+  "first": {
+    "X": [
+      "X"
+    ],
+    "S": [
+      "X"
+    ]
+  }
+}

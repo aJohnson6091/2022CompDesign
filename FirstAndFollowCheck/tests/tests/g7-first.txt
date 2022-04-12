@@ -1,0 +1,105 @@
+{
+  "terminals": [
+    "PLUS",
+    "STAR",
+    "ID",
+    "LB",
+    "RB"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "e"
+        ],
+        "labels": []
+      }
+    ],
+    "e": [
+      {
+        "lhs": "e",
+        "rhs": [
+          "e",
+          "PLUS",
+          "t"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "e",
+        "rhs": [
+          "t"
+        ],
+        "labels": []
+      }
+    ],
+    "f": [
+      {
+        "lhs": "f",
+        "rhs": [
+          "e",
+          "LB",
+          "RB"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "f",
+        "rhs": [
+          "ID"
+        ],
+        "labels": []
+      }
+    ],
+    "t": [
+      {
+        "lhs": "t",
+        "rhs": [
+          "t",
+          "STAR",
+          "f"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "t",
+        "rhs": [
+          "f"
+        ],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "PLUS :: \\+\nSTAR :: \\*\nID :: \\w+\nLB :: \\[\nRB :: \\]\nS :: e\ne :: e PLUS t | t\nt :: t STAR f | f\nf :: e LB RB | ID\n",
+  "nullable": [],
+  "first": {
+    "PLUS": [
+      "PLUS"
+    ],
+    "STAR": [
+      "STAR"
+    ],
+    "ID": [
+      "ID"
+    ],
+    "LB": [
+      "LB"
+    ],
+    "RB": [
+      "RB"
+    ],
+    "S": [
+      "ID"
+    ],
+    "e": [
+      "ID"
+    ],
+    "t": [
+      "ID"
+    ],
+    "f": [
+      "ID"
+    ]
+  }
+}

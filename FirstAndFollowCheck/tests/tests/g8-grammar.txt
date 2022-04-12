@@ -1,0 +1,121 @@
+{
+  "terminals": [
+    "DCOLON",
+    "COLON",
+    "PIPE",
+    "NOTNEWLINE",
+    "TNAME",
+    "NTNAME",
+    "LAMBDA",
+    "COMMENT",
+    "WHITESPACE"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "itemlist"
+        ],
+        "labels": []
+      }
+    ],
+    "item": [
+      {
+        "lhs": "item",
+        "rhs": [
+          "terminal"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "item",
+        "rhs": [
+          "nonterminal"
+        ],
+        "labels": []
+      }
+    ],
+    "itemlist": [
+      {
+        "lhs": "itemlist",
+        "rhs": [
+          "item",
+          "itemlist"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "itemlist",
+        "rhs": [
+          "item"
+        ],
+        "labels": []
+      }
+    ],
+    "nonterminal": [
+      {
+        "lhs": "nonterminal",
+        "rhs": [
+          "NTNAME",
+          "COLON",
+          "prodlist"
+        ],
+        "labels": []
+      }
+    ],
+    "prodlist": [
+      {
+        "lhs": "prodlist",
+        "rhs": [
+          "production",
+          "PIPE",
+          "prodlist"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "prodlist",
+        "rhs": [
+          "production"
+        ],
+        "labels": []
+      }
+    ],
+    "production": [
+      {
+        "lhs": "production",
+        "rhs": [
+          "TNAME"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "production",
+        "rhs": [
+          "NTNAME"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "production",
+        "rhs": [
+          "LAMBDA"
+        ],
+        "labels": []
+      }
+    ],
+    "terminal": [
+      {
+        "lhs": "terminal",
+        "rhs": [
+          "TNAME",
+          "DCOLON",
+          "NOTNEWLINE"
+        ],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "DCOLON :: ::\nCOLON :: :\nPIPE :: \\|\nNOTNEWLINE :: [^\\n]*\nS :: itemlist\nitemlist :: item itemlist | item\nitem :: terminal | nonterminal\nterminal :: TNAME DCOLON NOTNEWLINE\nTNAME :: [A-Z][^ :]*\nnonterminal :: NTNAME COLON prodlist\nNTNAME :: [a-z][^ :]*\nprodlist :: production PIPE prodlist | production\nproduction :: TNAME | NTNAME | LAMBDA\nLAMBDA :: lambda\nCOMMENT :: ^#[^\\n]*\nWHITESPACE :: \\S+\n"
+}

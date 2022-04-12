@@ -1,0 +1,39 @@
+{
+  "terminals": [
+    "LP",
+    "RP"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "LP",
+          "S",
+          "RP"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "S",
+        "rhs": [],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "LP :: \\(\nRP :: \\)\nS :: LP S RP | lambda \n",
+  "nullable": [
+    "S"
+  ],
+  "first": {
+    "LP": [
+      "LP"
+    ],
+    "RP": [
+      "RP"
+    ],
+    "S": [
+      "LP"
+    ]
+  }
+}

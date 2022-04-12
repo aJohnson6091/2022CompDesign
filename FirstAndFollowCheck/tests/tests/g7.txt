@@ -1,0 +1,9 @@
+PLUS :: \+
+STAR :: \*
+ID :: \w+
+LB :: \[
+RB :: \]
+S :: e
+e :: e PLUS t | t
+t :: t STAR f | f
+f :: e LB RB | ID

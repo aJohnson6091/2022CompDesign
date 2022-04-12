@@ -1,0 +1,41 @@
+{
+  "terminals": [
+    "X"
+  ],
+  "nonterminals": {
+    "S": [
+      {
+        "lhs": "S",
+        "rhs": [
+          "X"
+        ],
+        "labels": []
+      },
+      {
+        "lhs": "S",
+        "rhs": [
+          "X",
+          "S",
+          "X"
+        ],
+        "labels": []
+      }
+    ]
+  },
+  "specification": "X :: X\n\nS :: X | X S X\n",
+  "nullable": [],
+  "first": {
+    "X": [
+      "X"
+    ],
+    "S": [
+      "X"
+    ]
+  },
+  "follow": {
+    "S": [
+      "X",
+      "$"
+    ]
+  }
+}

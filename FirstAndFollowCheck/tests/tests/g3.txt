@@ -1,0 +1,74 @@
+STRUCT :: \bstruct\b
+ID :: [A-Za-z_]\w*
+TYPE :: \b(int|float)\b
+SEMI :: ;
+LB :: \[
+RB :: \]
+NUM :: \d+
+LP :: \(
+RP :: \)
+COMMA :: ,
+LBR :: \{
+RBR :: \}
+EQ :: =
+OROR :: \|\|
+ANDAND :: &&
+WHILE :: \bwhile\b
+NOT :: !
+RELOP :: >=|<=|>|<|!=|==
+PLUS :: [-+]
+STAR :: [*/%]
+BITOP :: [|&^]|<<|>>
+BITNOT :: ~
+DOT :: \.
+IF :: \bif\b
+ELSE :: \belse\b
+VOID :: \bvoid\b
+
+S           ::  program
+program     ::  typedecls vardecls funcdecls  
+typedecls   ::  structdecl typedecls | lambda 
+structdecl  ::  STRUCT ID LBR vardecls RBR SEMI 
+vardecls    ::  vardecl vardecls
+            |   lambda  
+vardecl     ::  TYPE ID optsize SEMI
+            |   STRUCT ID optsize SEMI 
+optsize     ::  LB NUM RB | lambda 
+funcdecls   ::  funcdecl funcdecls 
+            |   lambda 
+funcdecl    ::  ftype ID LP paramlist RP braceblock 
+ftype       ::  TYPE | VOID
+paramlist   ::  lambda 
+            |   param 
+            |   param COMMA paramlist2 
+paramlist2  ::  param  
+            |   param COMMA paramlist2 
+param       ::  TYPE ID optsize | STRUCT ID ID optsize 
+braceblock  ::  LBR vardecls stmts RBR 
+stmts       ::  stmt stmts 
+            |   lambda 
+stmt        ::  assign SEMI | cond | loop | funccall SEMI 
+assign      ::  ID EQ expr 
+cond        ::  IF LP expr RP braceblock 
+            |   IF LP expr RP braceblock ELSE braceblock 
+loop        ::  WHILE LP expr RP braceblock 
+funccall    ::  ID LP calllist RP 
+calllist    ::  lambda | expr | expr COMMA calllist2 
+calllist2   ::  expr | expr COMMA calllist2 
+expr        ::  orexp 
+orexp       ::  orexp OROR andexp | andexp 
+andexp      ::  andexp ANDAND notexp | notexp 
+notexp      ::  NOT notexp | relexp 
+relexp      ::  addexp RELOP addexp | addexp 
+# PLUS has + or -
+addexp      ::  addexp PLUS mulexp | mulexp 
+#STAR has * or / or %
+mulexp      ::  mulexp STAR bitexp | bitexp 
+#we have all these at the same level of precedence
+#BITOP = and, or, xor, shift left, shift right
+bitexp      ::  bitexp BITOP unaryexp | unaryexp 
+#NOT is ~ and !
+unaryexp    ::  PLUS unaryexp | BITNOT unaryexp | factor
+factor      ::  NUM | LP expr RP | ID postfix  
+postfix     ::  LB expr RB postfix | LP calllist RP postfix | DOT ID postfix | lambda 
+

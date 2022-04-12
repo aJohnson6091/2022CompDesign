@@ -1,0 +1,2 @@
+X :: x
+S :: lambda | S S | X

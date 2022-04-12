@@ -1,0 +1,16 @@
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\obj\Debug\net5.0\FirstAndFollow.csproj.AssemblyReference.cache
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\obj\Debug\net5.0\FirstAndFollow.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\obj\Debug\net5.0\FirstAndFollow.AssemblyInfoInputs.cache
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\obj\Debug\net5.0\FirstAndFollow.AssemblyInfo.cs
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\obj\Debug\net5.0\FirstAndFollow.csproj.CoreCompileInputs.cache
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\bin\Debug\net5.0\FirstAndFollow.exe
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\bin\Debug\net5.0\FirstAndFollow.deps.json
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\bin\Debug\net5.0\FirstAndFollow.runtimeconfig.json
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\bin\Debug\net5.0\FirstAndFollow.runtimeconfig.dev.json
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\bin\Debug\net5.0\FirstAndFollow.dll
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\bin\Debug\net5.0\ref\FirstAndFollow.dll
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\bin\Debug\net5.0\FirstAndFollow.pdb
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\obj\Debug\net5.0\FirstAndFollow.dll
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\obj\Debug\net5.0\ref\FirstAndFollow.dll
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\obj\Debug\net5.0\FirstAndFollow.pdb
+C:\Users\johnsau\source\repos\2022CompDesign\FirstAndFollow\FirstAndFollow\obj\Debug\net5.0\FirstAndFollow.genruntimeconfig.cache
