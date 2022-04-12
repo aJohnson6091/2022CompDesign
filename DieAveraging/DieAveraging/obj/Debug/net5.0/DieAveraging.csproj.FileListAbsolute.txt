@@ -1,0 +1,16 @@
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\bin\Debug\net5.0\DieAveraging.exe
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\bin\Debug\net5.0\DieAveraging.deps.json
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\bin\Debug\net5.0\DieAveraging.runtimeconfig.json
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\bin\Debug\net5.0\DieAveraging.runtimeconfig.dev.json
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\bin\Debug\net5.0\DieAveraging.dll
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\bin\Debug\net5.0\ref\DieAveraging.dll
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\bin\Debug\net5.0\DieAveraging.pdb
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\obj\Debug\net5.0\DieAveraging.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\obj\Debug\net5.0\DieAveraging.AssemblyInfoInputs.cache
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\obj\Debug\net5.0\DieAveraging.AssemblyInfo.cs
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\obj\Debug\net5.0\DieAveraging.csproj.CoreCompileInputs.cache
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\obj\Debug\net5.0\DieAveraging.dll
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\obj\Debug\net5.0\ref\DieAveraging.dll
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\obj\Debug\net5.0\DieAveraging.pdb
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\obj\Debug\net5.0\DieAveraging.genruntimeconfig.cache
+C:\Users\johnsau\source\repos\DieAveraging\DieAveraging\obj\Debug\net5.0\DieAveraging.csproj.AssemblyReference.cache
