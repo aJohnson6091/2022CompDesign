@@ -27,10 +27,18 @@ namespace FirstAndFollow
             while(lrr.removeOneRoundOfLeftRecursion()){
 
             }
+
             OutputObject output = new OutputObject();
             HashSet<string> nullableSet = nullable.calculateNullableSet(lrr.nonterminals);
-            output.first = first.calculateFirstSet(lrr.nonterminals,g.terminals, nullableSet,lrr.alteredSymbols);
-            output.follow = follow.calculateFollowSet(lrr.nonterminals, output.first, nullableSet);
+
+            List<string> altSymbolsComparer = new List<string>();
+            foreach (string s in lrr.alteredSymbols)
+            {
+                altSymbolsComparer.Add(s + "\'");
+            }
+
+            output.first = first.calculateFirstSet(lrr.nonterminals,g.terminals, nullableSet,altSymbolsComparer);
+            output.follow = follow.calculateFollowSet(lrr.nonterminals, output.first, nullableSet, altSymbolsComparer);
             var opts = new System.Text.Json.JsonSerializerOptions();
             opts.IncludeFields = true;
             opts.WriteIndented = true;

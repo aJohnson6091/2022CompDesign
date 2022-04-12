@@ -17,11 +17,7 @@ namespace FirstAndFollow
                 first[t.sym].Add(t.sym);
             }
             bool changed = true;
-            List<string> altSymbolsComparer = new List<string>();
-            foreach(string s in alteredSymbols)
-            {
-                altSymbolsComparer.Add(s + "\'");
-            }
+            
             while (changed)
             {
                 changed = false;
@@ -31,7 +27,7 @@ namespace FirstAndFollow
                     {
                         if (!first.ContainsKey(N))
                         {
-                            if (altSymbolsComparer.Contains(N))
+                            if (alteredSymbols.Contains(N))
                             {
                                 break;
                             }
