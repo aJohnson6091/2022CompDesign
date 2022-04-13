@@ -1,0 +1,5 @@
+C:\Users\johnsau\source\repos\2022CompDesign\Types\Types\obj\Debug\net5.0\Types.csproj.AssemblyReference.cache
+C:\Users\johnsau\source\repos\2022CompDesign\Types\Types\obj\Debug\net5.0\Types.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johnsau\source\repos\2022CompDesign\Types\Types\obj\Debug\net5.0\Types.AssemblyInfoInputs.cache
+C:\Users\johnsau\source\repos\2022CompDesign\Types\Types\obj\Debug\net5.0\Types.AssemblyInfo.cs
+C:\Users\johnsau\source\repos\2022CompDesign\Types\Types\obj\Debug\net5.0\Types.csproj.CoreCompileInputs.cache

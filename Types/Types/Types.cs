@@ -79,6 +79,22 @@ namespace Types
 
     public class VTypeStringV : VTypeString
     {
-        public VTypeStringV() : base() { }
+        public int capacity;
+        public VTypeStringV(int cap) : base()
+        {
+            this.capacity = cap;
+        }
+    }
+
+    class VarInfo
+    {
+        public VType type;
+        public int declaredLine;        //optional
+
+        public VarInfo(VType t, int decl)
+        {
+            type = t;
+            declaredLine = decl;
+        }
     }
 }
