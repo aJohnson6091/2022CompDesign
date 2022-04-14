@@ -1,0 +1,135 @@
+SEMI :: ;
+LBR :: \{
+RBR :: \}
+LB :: \[
+RB :: \]
+COMMA :: ,
+EQUALS :: =
+WHILE :: \bwhile\b
+LP :: \(
+RP :: \)
+IF :: \bif\b
+ELSE :: \belse\b
+PLUS :: [-+]
+STAR :: [*/%]
+BITOP :: [&|^]|<<|>>
+OROR :: \|\||\bor\b
+ANDAND :: &&|\band\b
+RELOP :: >=|<=|!=|==|>|<
+NOT :: !|\bnot\b
+BITNOT :: ~
+NUM :: \d+
+FNUM :: (\d+\.\d+|\d+\.|\.\d+)([eE][-+]?\d+)?
+STR :: "(\\"|[^"])*"
+CHAR :: '(\\.|.)'
+INT :: \bint\b
+DOUBLE :: \bdouble\b
+STRING :: \bstring\b
+STRUCT :: \bstruct\b
+DOT :: \.
+RETURN :: \breturn\b
+VOID :: \bvoid\b
+VEC2 :: \bvec2\b
+WHITESPACE :: \s+
+COMMENT :: /\*(\n|.)*?\*/|//[^\n]*
+ID :: [A-Za-z_]\w*
+
+#program = at least one declaration
+S           ::  decl S | decl
+
+#declaration: Struct type declaration, global variable declaration, or
+#function declaration
+decl        ::  structdecl | vardecl | funcdecl
+
+#struct declaration: Similar to C, but without the irritating
+#trailing semicolon
+structdecl  ::  STRUCT ID LBR vardecls RBR                  @structdecl
+
+#variable: Three built-in types or a struct. Optional array size.
+vardecl     ::  type ID optsize SEMI                        @vardecl
+optsize     ::  LB NUM RB                                   @optsize 
+            |   lambda                          
+            
+            
+funcdecl    ::  type ID LP paramlist RP braceBlock          @funcdecl
+            |   VOID ID LP paramlist RP braceBlock          @funcdecl
+type        ::  INT | DOUBLE | STRING LB NUM RB | STRUCT ID | VEC2
+paramlist   ::  lambda                                      @noparams
+            |   param                                       @oneparam
+            |   param COMMA paramlist2                      @manyparams
+paramlist2  ::  param                                       @paramlist2a
+            |   param COMMA paramlist2                      @paramlist2b
+param       ::  type ID optsize                             @param
+
+
+braceBlock  ::  LBR vardecls stmts RBR                      @bblock
+
+#variable declarations only. For use inside brace blocks.
+vardecls    ::  vardecl vardecls
+            |   lambda
+            
+#sequence of statements            
+stmts       ::  stmt stmts 
+            |   lambda 
+stmt        ::  assign SEMI 
+            |   cond 
+            |   whileExpr 
+            |   funccall SEMI 
+            |   return SEMI
+            |   braceBlock
+
+assign      ::  ID itemsel EQUALS expr                      @assign
+
+
+itemsel  ::     LB expr RB itemsel                          @arraysel
+            |   LP calllist RP itemsel                      @fcallsel
+            |   DOT ID itemsel                              @membersel
+            |   lambda 
+
+cond        ::  IF LP expr RP braceBlock                    @if
+            |   IF LP expr RP braceBlock ELSE braceBlock    @ifelse
+
+whileExpr   ::  WHILE LP expr RP braceBlock                 @while
+
+
+funccall    ::  ID LP calllist RP                           @funccall
+calllist    ::  lambda 
+            |   expr 
+            |   expr COMMA calllist2 
+calllist2   ::  expr | expr COMMA calllist2 
+
+expr        ::  orexp                                       @copyType
+orexp       ::  orexp OROR andexp                           @orexp
+            |   andexp                                      @copyType
+andexp      ::  andexp ANDAND notexp                        @andexp
+            |   notexp                                      @copyType
+notexp      ::  NOT notexp                                  @notexp
+            |   relexp                                      @copyType
+relexp      ::  addexp RELOP addexp                         @relexp
+            |   addexp                                      @copyType
+addexp      ::  addexp PLUS mulexp                          @sum
+            |   mulexp                                      @copyType
+mulexp      ::  mulexp STAR bitexp                          @product
+            |   bitexp                                      @copyType
+bitexp      ::  bitexp BITOP unaryexp                       @bitexp
+            |   unaryexp                                    @copyType
+unaryexp    ::  PLUS unaryexp                               @plus
+            |   BITNOT unaryexp                             @bitnot
+            |   factor                                      @copyType
+factor      ::  NUM                                         @num
+            |   FNUM                                        @fnum
+            |   LP expr RP                                  @expr
+            |   ID postfix                                  @id
+            |   STR                                         @str
+            |   cast                                        @copyType
+            |   CHAR                                        @char
+postfix     ::  LB expr RB postfix                          @array
+            |   LP calllist RP postfix                      @fcall
+            |   DOT ID postfix                              @member
+            |   lambda 
+cast        ::  INT LP expr RP                              @castint
+            |   DOUBLE LP expr RP                           @castdouble
+            |   VEC2 LP expr COMMA expr RP                  @castvec2
+return      ::  RETURN                                      @returnvoid
+            |   RETURN expr                                 @returnexpr
+

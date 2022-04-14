@@ -1,0 +1,5 @@
+/** 0 D S double "foo" **/
+double x;
+void main(){
+return x+"foo";
+}

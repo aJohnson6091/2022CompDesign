@@ -1,0 +1,349 @@
+{
+  "ok": true,
+  "tree": {
+    "sym": "S",
+    "token": null,
+    "children": [
+      {
+        "sym": "decl",
+        "token": null,
+        "children": [
+          {
+            "sym": "funcdecl",
+            "token": null,
+            "children": [
+              {
+                "sym": "VOID",
+                "token": {
+                  "sym": "VOID",
+                  "lexeme": "void",
+                  "line": 2
+                },
+                "children": [],
+                "productionIndex": -1,
+                "labels": []
+              },
+              {
+                "sym": "ID",
+                "token": {
+                  "sym": "ID",
+                  "lexeme": "main",
+                  "line": 2
+                },
+                "children": [],
+                "productionIndex": -1,
+                "labels": []
+              },
+              {
+                "sym": "LP",
+                "token": {
+                  "sym": "LP",
+                  "lexeme": "(",
+                  "line": 2
+                },
+                "children": [],
+                "productionIndex": -1,
+                "labels": []
+              },
+              {
+                "sym": "paramlist",
+                "token": null,
+                "children": [],
+                "productionIndex": 48,
+                "labels": [
+                  "noparams"
+                ]
+              },
+              {
+                "sym": "RP",
+                "token": {
+                  "sym": "RP",
+                  "lexeme": ")",
+                  "line": 2
+                },
+                "children": [],
+                "productionIndex": -1,
+                "labels": []
+              },
+              {
+                "sym": "braceBlock",
+                "token": null,
+                "children": [
+                  {
+                    "sym": "LBR",
+                    "token": {
+                      "sym": "LBR",
+                      "lexeme": "{",
+                      "line": 2
+                    },
+                    "children": [],
+                    "productionIndex": -1,
+                    "labels": []
+                  },
+                  {
+                    "sym": "vardecls",
+                    "token": null,
+                    "children": [],
+                    "productionIndex": 80,
+                    "labels": []
+                  },
+                  {
+                    "sym": "stmts",
+                    "token": null,
+                    "children": [
+                      {
+                        "sym": "stmt",
+                        "token": null,
+                        "children": [
+                          {
+                            "sym": "return",
+                            "token": null,
+                            "children": [
+                              {
+                                "sym": "RETURN",
+                                "token": {
+                                  "sym": "RETURN",
+                                  "lexeme": "return",
+                                  "line": 3
+                                },
+                                "children": [],
+                                "productionIndex": -1,
+                                "labels": []
+                              },
+                              {
+                                "sym": "expr",
+                                "token": null,
+                                "children": [
+                                  {
+                                    "sym": "orexp",
+                                    "token": null,
+                                    "children": [
+                                      {
+                                        "sym": "andexp",
+                                        "token": null,
+                                        "children": [
+                                          {
+                                            "sym": "notexp",
+                                            "token": null,
+                                            "children": [
+                                              {
+                                                "sym": "relexp",
+                                                "token": null,
+                                                "children": [
+                                                  {
+                                                    "sym": "addexp",
+                                                    "token": null,
+                                                    "children": [
+                                                      {
+                                                        "sym": "mulexp",
+                                                        "token": null,
+                                                        "children": [
+                                                          {
+                                                            "sym": "mulexp",
+                                                            "token": null,
+                                                            "children": [
+                                                              {
+                                                                "sym": "bitexp",
+                                                                "token": null,
+                                                                "children": [
+                                                                  {
+                                                                    "sym": "unaryexp",
+                                                                    "token": null,
+                                                                    "children": [
+                                                                      {
+                                                                        "sym": "factor",
+                                                                        "token": null,
+                                                                        "children": [
+                                                                          {
+                                                                            "sym": "STR",
+                                                                            "token": {
+                                                                              "sym": "STR",
+                                                                              "lexeme": "\"foo\"",
+                                                                              "line": 3
+                                                                            },
+                                                                            "children": [],
+                                                                            "productionIndex": -1,
+                                                                            "labels": []
+                                                                          }
+                                                                        ],
+                                                                        "productionIndex": 29,
+                                                                        "labels": [
+                                                                          "str"
+                                                                        ]
+                                                                      }
+                                                                    ],
+                                                                    "productionIndex": 77,
+                                                                    "labels": [
+                                                                      "copyType"
+                                                                    ]
+                                                                  }
+                                                                ],
+                                                                "productionIndex": 9,
+                                                                "labels": [
+                                                                  "copyType"
+                                                                ]
+                                                              }
+                                                            ],
+                                                            "productionIndex": 40,
+                                                            "labels": [
+                                                              "copyType"
+                                                            ]
+                                                          },
+                                                          {
+                                                            "sym": "STAR",
+                                                            "token": {
+                                                              "sym": "STAR",
+                                                              "lexeme": "*",
+                                                              "line": 3
+                                                            },
+                                                            "children": [],
+                                                            "productionIndex": -1,
+                                                            "labels": []
+                                                          },
+                                                          {
+                                                            "sym": "bitexp",
+                                                            "token": null,
+                                                            "children": [
+                                                              {
+                                                                "sym": "unaryexp",
+                                                                "token": null,
+                                                                "children": [
+                                                                  {
+                                                                    "sym": "factor",
+                                                                    "token": null,
+                                                                    "children": [
+                                                                      {
+                                                                        "sym": "NUM",
+                                                                        "token": {
+                                                                          "sym": "NUM",
+                                                                          "lexeme": "15",
+                                                                          "line": 3
+                                                                        },
+                                                                        "children": [],
+                                                                        "productionIndex": -1,
+                                                                        "labels": []
+                                                                      }
+                                                                    ],
+                                                                    "productionIndex": 25,
+                                                                    "labels": [
+                                                                      "num"
+                                                                    ]
+                                                                  }
+                                                                ],
+                                                                "productionIndex": 77,
+                                                                "labels": [
+                                                                  "copyType"
+                                                                ]
+                                                              }
+                                                            ],
+                                                            "productionIndex": 9,
+                                                            "labels": [
+                                                              "copyType"
+                                                            ]
+                                                          }
+                                                        ],
+                                                        "productionIndex": 39,
+                                                        "labels": [
+                                                          "product"
+                                                        ]
+                                                      }
+                                                    ],
+                                                    "productionIndex": 4,
+                                                    "labels": [
+                                                      "copyType"
+                                                    ]
+                                                  }
+                                                ],
+                                                "productionIndex": 58,
+                                                "labels": [
+                                                  "copyType"
+                                                ]
+                                              }
+                                            ],
+                                            "productionIndex": 42,
+                                            "labels": [
+                                              "copyType"
+                                            ]
+                                          }
+                                        ],
+                                        "productionIndex": 6,
+                                        "labels": [
+                                          "copyType"
+                                        ]
+                                      }
+                                    ],
+                                    "productionIndex": 46,
+                                    "labels": [
+                                      "copyType"
+                                    ]
+                                  }
+                                ],
+                                "productionIndex": 24,
+                                "labels": [
+                                  "copyType"
+                                ]
+                              }
+                            ],
+                            "productionIndex": 60,
+                            "labels": [
+                              "returnexpr"
+                            ]
+                          },
+                          {
+                            "sym": "SEMI",
+                            "token": {
+                              "sym": "SEMI",
+                              "lexeme": ";",
+                              "line": 3
+                            },
+                            "children": [],
+                            "productionIndex": -1,
+                            "labels": []
+                          }
+                        ],
+                        "productionIndex": 65,
+                        "labels": []
+                      },
+                      {
+                        "sym": "stmts",
+                        "token": null,
+                        "children": [],
+                        "productionIndex": 68,
+                        "labels": []
+                      }
+                    ],
+                    "productionIndex": 67,
+                    "labels": []
+                  },
+                  {
+                    "sym": "RBR",
+                    "token": {
+                      "sym": "RBR",
+                      "lexeme": "}",
+                      "line": 4
+                    },
+                    "children": [],
+                    "productionIndex": -1,
+                    "labels": []
+                  }
+                ],
+                "productionIndex": 10,
+                "labels": [
+                  "bblock"
+                ]
+              }
+            ],
+            "productionIndex": 34,
+            "labels": [
+              "funcdecl"
+            ]
+          }
+        ],
+        "productionIndex": 23,
+        "labels": []
+      }
+    ],
+    "productionIndex": 2,
+    "labels": []
+  }
+}

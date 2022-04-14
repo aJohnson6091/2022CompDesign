@@ -1,0 +1,5 @@
+/** 1 **/
+double x;
+void main(){
+x=20.0;
+}

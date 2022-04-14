@@ -1,0 +1,4 @@
+/** 0 **/
+void main(){
+return 75 or 54.0;
+}

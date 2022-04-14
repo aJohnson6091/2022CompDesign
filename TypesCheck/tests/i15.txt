@@ -1,0 +1,4 @@
+/** 0 **/
+void main(){
+return 35 and "foo";
+}

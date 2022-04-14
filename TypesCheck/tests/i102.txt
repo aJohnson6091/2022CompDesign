@@ -1,0 +1,5 @@
+/** 0 S S string[10] "foo" **/
+void main(){
+string[10] x;
+return x+"foo";
+}

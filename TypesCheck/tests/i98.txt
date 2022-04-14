@@ -1,0 +1,5 @@
+/** 1 D D double 89.0 **/
+void main(){
+double x;
+return x+89.0;
+}

@@ -1,0 +1,4 @@
+/** 0 **/
+void main(){
+return 31.0 and 28;
+}

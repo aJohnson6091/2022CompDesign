@@ -1,0 +1,5 @@
+
+double x;
+void main(){
+return x+"foo";
+}

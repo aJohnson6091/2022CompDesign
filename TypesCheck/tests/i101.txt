@@ -1,0 +1,5 @@
+/** 0 S D string[10] 82.0 **/
+string[10] x;
+void main(){
+return x+82.0;
+}

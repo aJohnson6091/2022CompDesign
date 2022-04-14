@@ -8,7 +8,6 @@ namespace Types
 {
     class OutputObject
     {
-        public Dictionary<string, HashSet<string>> first = new Dictionary<string, HashSet<string>>();
-        public Dictionary<string, HashSet<string>> follow = new Dictionary<string, HashSet<string>>();
+        public bool ok;
     }
 }

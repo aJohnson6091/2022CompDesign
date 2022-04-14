@@ -1,0 +1,6 @@
+/** 0 **/
+int x;
+int x;
+void main(){
+return 81;
+}

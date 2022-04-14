@@ -1,0 +1,5 @@
+/** 0 I S int "foo" **/
+void main(){
+int x;
+return x+"foo";
+}

@@ -1,0 +1,5 @@
+/** 0 I D int 85.0 **/
+int x;
+void main(){
+return x+85.0;
+}

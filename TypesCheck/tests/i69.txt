@@ -1,0 +1,4 @@
+/** 0 **/
+void main(){
+return not "foo";
+}

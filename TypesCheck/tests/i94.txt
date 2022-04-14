@@ -1,0 +1,5 @@
+/** 1 I I int 26 **/
+void main(){
+int x;
+return x+26;
+}

@@ -14,6 +14,10 @@ namespace Types
         public int productionIndex;     //only if sym is nonterminal
         public string[] labels;
         public List<TreeNode> children = new List<TreeNode>();
+        public TreeNode()
+        {
+
+        }
         public TreeNode(string sym, Token t, int pi)
         {
             this.sym = sym;

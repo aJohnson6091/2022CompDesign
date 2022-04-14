@@ -43,11 +43,13 @@ namespace Types
         //for convenience
         public static readonly VType INT;
         public static readonly VType DOUBLE;
+        public static readonly VType STRING;
         public static readonly VType VOID;
         static VType()
         {
             INT = new VTypeInt();       //next slide
             DOUBLE = new VTypeDouble(); //next slide
+            STRING = new VTypeString();
             VOID = new VTypeVoid();     //next slide
         }
     }

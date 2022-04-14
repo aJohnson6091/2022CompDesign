@@ -1,0 +1,4 @@
+/** 1 **/
+void main(){
+return 81 and 14;
+}

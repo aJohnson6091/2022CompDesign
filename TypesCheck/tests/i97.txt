@@ -1,0 +1,5 @@
+/** 0 D I double 34 **/
+double x;
+void main(){
+return x+34;
+}

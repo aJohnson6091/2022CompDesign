@@ -1,0 +1,5 @@
+/** 0 **/
+void main(){
+double x;
+x=46;
+}

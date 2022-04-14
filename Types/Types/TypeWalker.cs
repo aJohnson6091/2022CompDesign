@@ -19,12 +19,12 @@ namespace Types
                 TreeNode c = n.children[i];
                 if (!Array.Exists(allowed, t => t == c.type))
                 {
-                    // error: Child i has disallowed type
+                    throw new Exception("Child is disallowed Type");
                 }
 
                 if (c0.type != c.type)
                 {
-                    // error: Mismatched types
+                    throw new Exception("Mismatched Types");
                 }
 
             }
@@ -39,6 +39,19 @@ namespace Types
             typeCheck(n, new int[] { i0, i1 }, allowed);
         }
 
+
+        void declInt(TreeNode n)
+        {
+            string vname = n.children[1].token.lexeme;
+            var vi = new VarInfo(new VTypeInt(), n.children[1].token.line);
+            symtable[vname] = vi;
+        }
+        void declDouble(TreeNode n)
+        {
+            string vname = n.children[1].token.lexeme;
+            var vi = new VarInfo(new VTypeDouble(), n.children[1].token.line);
+            symtable[vname] = vi;
+        }
         void declString(TreeNode n)
         {
             string vname = n.children[1].token.lexeme;
@@ -47,6 +60,8 @@ namespace Types
                                     n.children[1].token.line);
             symtable[vname] = vi;
         }
+
+
         public override void leave_vardecl(TreeNode n)
         {
             //vardecl :: type ID optsize SEMI
@@ -59,7 +74,7 @@ namespace Types
                 case "STRING":
                     declString(n); break;
                 default:
-                    ICE     //internal compiler error: Not implemented
+                    throw new Exception("Internal Compiler Error");     //internal compiler error: Not implemented
     }
         }
         public override void enter_bblock(TreeNode n)
@@ -77,8 +92,27 @@ namespace Types
             typeCheck(n, 2, VType.INT, VType.DOUBLE);
             n.type = VType.INT;
         }
+        public override void leave_castdouble(TreeNode n)
+        {
+            //cast :: INT LP expr RP
+            typeCheck(n, 2, VType.DOUBLE, VType.INT);
+            n.type = VType.DOUBLE;
+        }
         public override void leave_sum(TreeNode n)
         {
+            typeCheck(n, 0, 2, VType.INT, VType.DOUBLE);
+            VType t1 = n.children[0].type;
+            VType t2 = n.children[2].type;
+            if (t1 == VType.DOUBLE || t2 == VType.DOUBLE)
+                n.type = VType.DOUBLE;
+            else if (t1 == VType.INT || t2 == VType.INT )
+                n.type = VType.INT;
+            else
+                throw new Exception("Leave Sum Exception");
+        }
+        public override void leave_product(TreeNode n)
+        {
+            typeCheck(n, 0, 2, VType.INT, VType.DOUBLE);
             VType t1 = n.children[0].type;
             VType t2 = n.children[2].type;
             if (t1 == VType.DOUBLE || t2 == VType.DOUBLE)
@@ -86,13 +120,21 @@ namespace Types
             else if (t1 == VType.INT || t2 == VType.INT)
                 n.type = VType.INT;
             else
-                //error
-    }
+                throw new Exception("Leave Sum Exception");
+        }
         public override void leave_num(TreeNode n)
         {
             n.type = VType.INT;
         }
         public override void leave_while(TreeNode n)
+        {
+            typeCheck(n, 2, VType.INT);
+        }
+        public override void leave_if(TreeNode n)
+        {
+            typeCheck(n, 2, VType.INT);
+        }
+        public override void leave_ifelse(TreeNode n)
         {
             typeCheck(n, 2, VType.INT);
         }
@@ -112,5 +154,49 @@ namespace Types
         {
             n.type = n.children[1].type;
         }
+        
+        public override void leave_andexp(TreeNode n)
+        {
+            typeCheck(n, 0, 2, VType.INT, VType.INT);
+        }
+        public override void leave_orexp(TreeNode n)
+        {
+            typeCheck(n, 0, 2, VType.INT, VType.INT);
+        }
+        public override void leave_notexp(TreeNode n)
+        {
+            typeCheck(n, 1, VType.INT);
+        }
+        public override void leave_bitexp(TreeNode n)
+        {
+            typeCheck(n, 0, 2, VType.INT, VType.INT);
+        }
+        public override void leave_relexp(TreeNode n)
+        {
+            typeCheck(n, 0, 2, VType.INT, VType.DOUBLE, VType.STRING);
+        }
+        public override void leave_bitnot(TreeNode n)
+        {
+            typeCheck(n, 1, VType.INT);
+        }
+        public override void leave_plus(TreeNode n)
+        {
+            typeCheck(n, 1, VType.INT,VType.DOUBLE);
+        }
+        public override void leave_id(TreeNode n)
+        {
+            string vname = n.children[0].token.lexeme;
+            n.type = symtable[vname].type;
+        }
+        public override void leave_assign(TreeNode n)
+        {
+            string vname = n.children[0].token.lexeme;
+            if(symtable[vname] == null || !symtable[vname].type.Equals(n.children[3].type))
+            {
+                throw new Exception("Mismatch assignment");
+            }
+        }
+
     }
+
 }
