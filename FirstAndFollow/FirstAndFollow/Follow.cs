@@ -65,7 +65,7 @@ namespace FirstAndFollow
                                     }
                                     
                                 }
-                                if (!broke)
+                                if (!broke&& follow.ContainsKey(x))
                                 {
                                     follow[x].UnionWith(follow[N]);
                                 }
