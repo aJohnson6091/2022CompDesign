@@ -1,0 +1,5 @@
+C:\Users\johnsau\source\repos\2022CompDesign\Expressions\Expressions\obj\Debug\net5.0\Expressions.csproj.AssemblyReference.cache
+C:\Users\johnsau\source\repos\2022CompDesign\Expressions\Expressions\obj\Debug\net5.0\Expressions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johnsau\source\repos\2022CompDesign\Expressions\Expressions\obj\Debug\net5.0\Expressions.AssemblyInfoInputs.cache
+C:\Users\johnsau\source\repos\2022CompDesign\Expressions\Expressions\obj\Debug\net5.0\Expressions.AssemblyInfo.cs
+C:\Users\johnsau\source\repos\2022CompDesign\Expressions\Expressions\obj\Debug\net5.0\Expressions.csproj.CoreCompileInputs.cache

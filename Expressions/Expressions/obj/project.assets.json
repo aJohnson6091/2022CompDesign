@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\ASM\\ASM\\ASM.csproj",
-      "projectName": "ASM",
-      "projectPath": "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\ASM\\ASM\\ASM.csproj",
+      "projectUniqueName": "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\Expressions\\Expressions\\Expressions.csproj",
+      "projectName": "Expressions",
+      "projectPath": "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\Expressions\\Expressions\\Expressions.csproj",
       "packagesPath": "C:\\Users\\johnsau\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\ASM\\ASM\\obj\\",
+      "outputPath": "C:\\Users\\johnsau\\source\\repos\\2022CompDesign\\Expressions\\Expressions\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
