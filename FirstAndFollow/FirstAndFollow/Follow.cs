@@ -44,30 +44,46 @@ namespace FirstAndFollow
                                 bool broke = false;
                                 foreach (string y in P.rhs.Skip(i + 1))
                                 {
+                                    
+                                    int size1, size2;
+                                    size1 = follow[x].Count;
+                                    follow[x].UnionWith(first[y]);
                                     if (first.ContainsKey(y))
                                     {
-                                        int size1, size2;
-                                        size1 = follow[x].Count;
-                                        follow[x].UnionWith(first[y]);
-                                        size2 = follow[x].Count;
-                                        if (size1 != size2)
-                                        {
-                                            changed = true;
-                                        }
-                                        if (!nullable.Contains(y))
-                                        {
-                                            broke = true;
-                                            break;
-                                        }
-                                    }
-                                    else {
-                                        broke = true;
+                                        
                                     }
                                     
+                                    /*
+                                    if (first.ContainsKey(y))
+                                    {
+                                        
+                                    }else if (y.Contains("\'"))
+                                    {
+                                        string[] substrings = nonterminals[y][0].rhs[0].Split(" ");
+                                        foreach (string z in substrings)
+                                        {
+                                            if (z == z.ToUpper()&&follow.ContainsKey(N))
+                                            {
+                                                follow[N].Add(z);
+                                            }
+                                        }
+
+                                    }
+                                    */
+                                    size2 = follow[x].Count;
+                                    if (size1 != size2)
+                                    {
+                                        changed = true;
+                                    }
+                                    if (!nullable.Contains(y))
+                                    {
+                                        broke = true;
+                                        break;
+                                    }                                    
                                 }
-                                if (!broke&& follow.ContainsKey(x))
+                                if (!broke && follow.ContainsKey(x))
                                 {
-                                    follow[x].UnionWith(follow[N]);
+                                        follow[x].UnionWith(follow[N]);
                                 }
                             }
                         }
